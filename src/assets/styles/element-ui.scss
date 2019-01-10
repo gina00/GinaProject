@@ -28,3 +28,10 @@
     border-bottom-color: #fff;
     background: #fff;
 }
+
+// 
+.el-menu-item.is-active {
+    color: #409EFF;
+    background-color: #3a404f !important;
+    border-left: 2px solid #00aaff;
+}

@@ -1,18 +1,27 @@
 <template>
 <div>
-    <router-link to="/">
+    <router-link to="/dashboard">
         <el-menu-item index="dashboard">
-            <span slot="title">项目案例</span>
+            <i class="fa fa-tachometer" aria-hidden="true"></i>
+            <span slot="title" class="itemText">Dashboard</span>
+        </el-menu-item>
+    </router-link>
+    <router-link to="/project">
+        <el-menu-item index="project">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <span slot="title" class="itemText">项目案例</span>
         </el-menu-item>
     </router-link>
     <router-link to="/totalordermanage">
         <el-menu-item index="totalordermanage/index">
-            <span slot="title">问题总结</span>
+        <i class="fa fa-credit-card" aria-hidden="true"></i>
+            <span slot="title" class="itemText">问题总结</span>
         </el-menu-item>
     </router-link>
     <router-link to="/shoppingmanage">
     <el-menu-item index="shoppingmanage/index">
-        <span slot="title">购物车管理</span>
+    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+        <span slot="title" class="itemText">关于我</span>
     </el-menu-item>
     </router-link>
 </div>
@@ -24,13 +33,14 @@ export default {
     return {};
   },
   methods: {
-    handleClick(index) {
-      this.$emit("showsubtab", index);
-    },
+    
     
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.itemText{
+    margin-left: 15px;
+}
 </style>

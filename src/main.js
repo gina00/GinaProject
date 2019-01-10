@@ -12,6 +12,8 @@ import '@/assets/styles/index.scss'
 import 'font-awesome/css/font-awesome.css'
 import ECharts from 'echarts'
 import jsPlumb from 'jsplumb'
+import axios from "axios"
+import VueResource from 'vue-resource'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
@@ -19,6 +21,8 @@ Vue.component('v-chart', ECharts)
 Vue.prototype.$echarts = ECharts
     /* eslint-disable no-new */
 Vue.prototype.$jsPlumb = jsPlumb.jsPlumb
+Vue.prototype.$axios = axios
+Vue.use(VueResource)
 
 new Vue({
     el: '#app',

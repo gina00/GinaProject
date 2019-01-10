@@ -2,7 +2,7 @@
 <el-scrollbar style="height:100%" wrapClass="scrollbar-wrapper">
     <el-menu :default-active='activedMenu()' class="el-menu-vertical-demo" background-color="#2b3844"
       text-color="#fff"
-      active-text-color="#00aaff"  @open="handleOpen" @close="handleClose" @select='handleClick'>
+      active-text-color="#00aaff"  @open="handleOpen" @close="handleClose">
         <div class="subMenuTitle">
             <span class="cn">MENU</span>
         </div>
@@ -34,14 +34,12 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-    handleClick(index) {
-      this.$store.commit("changeSubMenu", index);
-      return index;
-      console.log("当前选中子菜单下标是：" + index);
-    },
     activedMenu() {
       if (this.$route.path.indexOf("/dashboard") == 0) {
         return "dashboard";
+      }
+      else if (this.$route.path.indexOf("/project") == 0) {
+        return "project";
       } else if (this.$route.path.indexOf("/totalordermanage/index") == 0) {
         return "totalordermanage/index";
       }
