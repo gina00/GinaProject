@@ -1,0 +1,542 @@
+[{
+        "id": 0,
+        "listName": "核心业务",
+        "children": [{
+                "name": "入网类",
+                "children": [{
+                        "name": "预约入网"
+                    },
+                    {
+                        "name": "测试/设备卡开户(新)",
+                        "disable": true
+                    }
+                ]
+            },
+            {
+                "name": "产品类",
+                "children": [{
+                        "name": "产品受理"
+                    },
+                    {
+                        "name": "产品设置"
+                    },
+                    {
+                        "name": "套餐信息查询"
+                    },
+                    {
+                        "name": "套餐计算器"
+                    },
+                    {
+                        "name": "增值产品受理"
+                    },
+                    {
+                        "name": "基本包变更"
+                    },
+                    {
+                        "name": "集团个人产品受理 ",
+                        "disable": true
+                    },
+                    {
+                        "name": "冷号加速回滚 ",
+                        "disable": true
+                    }
+                ]
+            },
+            {
+                "name": "营销类",
+                "children": [{
+                        "name": "营销受理"
+                    },
+                    {
+                        "name": "营销鉴权"
+                    },
+                    {
+                        "name": "增加捆绑手机"
+                    },
+                    {
+                        "name": "集团营销业务受理"
+                    },
+                    {
+                        "name": "营销活动特殊名单管理",
+                        "disable": true
+                    },
+                    {
+                        "name": "2018两节业务量查询",
+                        "disable": true
+                    },
+                    {
+                        "name": "营销案撤销违约金查询",
+                        "disable": true
+                    },
+                    {
+                        "name": "4G+机型库管理",
+                        "disable": true
+                    }
+                ]
+            },
+            {
+                "name": "和多号",
+                "children": [{
+                        "name": "I类虚拟副号找回",
+                        "disable": true
+                    },
+                    {
+                        "name": "业务取消",
+                        "disable": true
+                    },
+                    {
+                        "name": "业务申请",
+                        "disable": true
+                    }
+                ]
+            },
+            {
+                "name": "融合订购",
+                "children": [{
+                        "name": "融合商品受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "集团融合商品受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "集团融合商品变更退订",
+                        "disable": true
+                    }
+                ]
+            },
+            {
+                "name": "集团商品",
+                "children": [{
+                        "name": "集团商品统一受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "集团商品统一变更退订",
+                        "disable": true
+                    },
+                    {
+                        "name": "政务专网业务受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "政务专网业务变更退订",
+                        "disable": true
+                    },
+                    {
+                        "name": "国税通业务受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "国税通业务变更退订",
+                        "disable": true
+                    },
+                    {
+                        "name": "ADC业务接入号资费受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "ADC业务接入号资费变更退订",
+                        "disable": true
+                    },
+                    {
+                        "name": "MAS业务接入号资费受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "MAS业务接入号资费变更退订",
+                        "disable": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "listName": "实名登记",
+        "children": [{
+                "name": "个人客户实名",
+                "children": [{
+                        "name": "普通入网"
+                    },
+                    {
+                        "name": "全网用户预占管理",
+                        "disable": true
+                    },
+                    {
+                        "name": "甲种卡销售"
+                    },
+                    {
+                        "name": "外部渠道售卡",
+                        "disable": true
+                    },
+                    {
+                        "name": "档案补正"
+                    },
+                    {
+                        "name": "入网实名制登记"
+                    },
+                    {
+                        "name": "身份证核实"
+                    },
+                    {
+                        "name": "人证核验",
+                        "disable": true
+                    },
+                    {
+                        "name": "过户"
+                    },
+                    {
+                        "name": "优号过户"
+                    },
+                    {
+                        "name": "(新)网上售号订单处理"
+                    },
+                    {
+                        "name": "金砖会议代办入网"
+                    },
+                    {
+                        "name": "实名接触号码所有关系"
+                    }
+                ]
+            },
+            {
+                "name": "单位客户实名",
+                "children": [{
+                        "name": "单位用户入网"
+                    },
+                    {
+                        "name": "单位客户过户"
+                    },
+                    {
+                        "name": "单位客户档案补正"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "listName": "家宽业务",
+        "children": [{
+                "name": "家庭业务融合产品",
+                "children": [{
+                        "name": "家庭业务融合受理"
+                    },
+                    {
+                        "name": "追加业务",
+                        "disable": true
+                    },
+                    {
+                        "name": "融合产品订购"
+                    },
+                    {
+                        "name": "融合产品变更"
+                    },
+                    {
+                        "name": "家庭业务续订变更",
+                        "disable": true
+                    },
+                    {
+                        "name": "家庭业务追加",
+                        "disable": true
+                    },
+                    {
+                        "name": "营销补受理",
+                        "disable": true
+                    },
+                    {
+                        "name": "家庭业务信息变更",
+                        "disable": true
+                    }
+                ]
+            },
+            {
+                "name": "宽带单产品",
+                "children": [{
+                        "name": "业务开通"
+                    },
+                    {
+                        "name": "业务变更"
+                    },
+                    {
+                        "name": "业务数据同步"
+                    },
+                    {
+                        "name": "提速包受理"
+                    },
+                    {
+                        "name": "多屏适配"
+                    },
+                    {
+                        "name": "开通进度查询",
+                        "disable": true
+                    },
+                    {
+                        "name": "业务资源查询（新）",
+                        "disable": true
+                    },
+                    {
+                        "name": "预约信息管理",
+                        "disable": true
+                    },
+                    {
+                        "name": "单产品宽带（裸宽）订购",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "互联网电视单产品",
+                "children": [{
+                        "name": "业务开通"
+                    },
+                    {
+                        "name": "业务变更"
+                    },
+                    {
+                        "name": "互联网电视用户资料查询"
+                    },
+                    {
+                        "name": "互联网电视视频通话管理",
+                        "disable": true
+                    },
+                    {
+                        "name": "互联网电视内容计费产品受理",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "互联网电视单产品",
+                "children": [{
+                        "name": "单位用户入网"
+                    },
+                    {
+                        "name": "单位客户过户"
+                    },
+                    {
+                        "name": "单位客户档案补正"
+                    }
+                ]
+            }, {
+                "name": "I我家",
+                "children": [{
+                        "name": "家庭管理"
+                    },
+                    {
+                        "name": "家庭短号修改"
+                    },
+                    {
+                        "name": "家庭产品受理"
+                    },
+                    {
+                        "name": "家庭出账关系定制"
+                    },
+                    {
+                        "name": "家庭账单打印"
+                    }
+                ]
+            }, {
+                "name": "智能家居安防",
+                "children": [{
+                        "name": "智能家居安防订购",
+                        "disable": true
+                    },
+                    {
+                        "name": "智能家居安防退单",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "固话单产品",
+                "children": [{
+                        "name": "拆机",
+                        "disable": true
+                    },
+                    {
+                        "name": "个人IMS固话开户",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "全网互联网电视",
+                "children": [{
+                        "name": "业务取消",
+                        "disable": true
+                    },
+                    {
+                        "name": "可选包受理",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "设备进销存管理",
+                "children": [{
+                        "name": "宽带设备出库管理",
+                        "disable": true
+                    },
+                    {
+                        "name": "宽带设备入库管理",
+                        "disable": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "listName": "服务变更",
+        "children": [{
+                "name": "重点业务",
+                "children": [{
+                        "name": "改号"
+                    },
+                    {
+                        "name": "改号（订单中心）",
+                        "disable": true
+                    },
+                    {
+                        "name": "开打登记"
+                    },
+                    {
+                        "name": "报停复机"
+                    },
+                    {
+                        "name": "（预约）省内异地携号"
+                    }
+                ]
+            },
+            {
+                "name": "补换卡",
+                "children": [{
+                        "name": "补换卡"
+                    },
+                    {
+                        "name": "补换卡（订单中心）"
+                    },
+                    {
+                        "name": "备卡申请"
+                    },
+                    {
+                        "name": "备卡申请（订单中心）"
+                    },
+                    {
+                        "name": "备卡激活"
+                    },
+                    {
+                        "name": "备卡激活（订单中心）"
+                    }
+                ]
+            }, {
+                "name": "客户资料",
+                "children": [{
+                        "name": "学生信息登记"
+                    },
+                    {
+                        "name": "和多号虚拟副号客户档案补正",
+                        "disable": true
+                    },
+                    {
+                        "name": "全网一证多号信息查询",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "业务密码",
+                "children": [{
+                        "name": "业务密码变更"
+                    },
+                    {
+                        "name": "业务密码重置"
+                    }
+                ]
+            }, {
+                "name": "销户复机",
+                "children": [{
+                    "name": "申请销户"
+                }, {
+                    "name": "预销户复机"
+                }, {
+                    "name": "彻底销户复机"
+                }]
+            }, {
+                "name": "黑白名单",
+                "children": [{
+                        "name": "业务限制黑名单",
+                        "disable": true
+                    },
+                    {
+                        "name": "业务限制白名单",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "跨省业务",
+                "children": [{
+                        "name": "跨省报停复机"
+                    }, {
+                        "name": "自备卡激活"
+                    },
+                    {
+                        "name": "跨省远程写卡激活",
+                        "disable": true
+                    },
+                    {
+                        "name": "跨省用户写卡",
+                        "disable": true
+                    }
+                ]
+            }, {
+                "name": "共享套餐",
+                "children": [{
+                        "name": "增设副号"
+                    }, {
+                        "name": "副号绑定取消"
+                    },
+                    {
+                        "name": "群组共享受理",
+                        "disable": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "listName": "账务服务",
+        "children": []
+    },
+    {
+        "id": 5,
+        "listName": "终端销售",
+        "children": []
+    }, {
+        "id": 6,
+        "listName": "增值业务",
+        "children": []
+    }, {
+        "id": 7,
+        "listName": "资源管理",
+        "children": []
+    }, {
+        "id": 8,
+        "listName": "客户服务",
+        "children": []
+    }, {
+        "id": 9,
+        "listName": "工作管理",
+        "children": []
+    }, {
+        "id": 10,
+        "listName": "地市功能",
+        "children": []
+    }, {
+        "id": 11,
+        "listName": "铁通割接业务",
+        "children": []
+    }, {
+        "id": 12,
+        "listName": "订单管理",
+        "children": []
+    }
+]

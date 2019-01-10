@@ -1,0 +1,30 @@
+.el-select {
+    display: block;
+}
+
+
+/*user-a 覆盖elementui*/
+
+.left {
+    .pw-box {
+        .el-input__inner {
+            width: 90%;
+        }
+    }
+    .el-button--primary {
+        width: 100%;
+    }
+}
+
+
+/*user-a 覆盖elementui*/
+
+.orderManageBox .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #fff;
+    background: #fff;
+}
+
+.backStageSalesMan .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #fff;
+    background: #fff;
+}

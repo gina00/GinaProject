@@ -1,0 +1,96 @@
+[
+    {
+        "operateList": [
+            {
+                "operate": "产品受理"
+            },
+            {
+                "operate": "营销受理"
+            },
+            {
+                "operate": "普通入网"
+            },
+            {
+                "operate": "开打登记"
+            },
+            {
+                "operate": "档案补正"
+            },
+            {
+                "operate": "业务密码重置"
+            },
+            {
+                "operate": "补换卡"
+            },
+            {
+                "operate": "申请销户"
+            },
+            {
+                "operate": "融合产品订购"
+            },
+            {
+                "operate": "宽带业务开通"
+            },
+            {
+                "operate": "宽带业务变更"
+            },
+            {
+                "operate": "消费信息查询打印"
+            },
+            {
+                "operate": "现金缴费"
+            },
+            {
+                "operate": "报停复机"
+            },
+            {
+                "operate": "营业结账"
+            }
+        ]
+    },
+    {
+        "hot": [
+            {
+                "icon": "../../static/images/u134.png",
+                "icon_hover": "../../static/images/u134_mouseOver.png",
+                "operateName": "档案补正"
+            },
+            {
+                "icon": "../../static/images/u139.png",
+                "icon_hover": "../../static/images/u139_mouseOver.png",
+                "operateName": "普通入网"
+            },
+            {
+                "icon": "../../static/images/u144.png",
+                "icon_hover": "../../static/images/u144_mouseOver.png",
+                "operateName": "营销受理"
+            },
+            {
+                "icon": "../../static/images/u149.png",
+                "icon_hover": "../../static/images/u149_mouseOver.png",
+                "operateName": "开打登记"
+            },
+            {
+                "icon": "../../static/images/u154.png",
+                "icon_hover": "../../static/images/u154_mouseOver.png",
+                "operateName": "家庭管理"
+            },
+            {
+                "icon": "../../static/images/u159.png",
+                "icon_hover": "../../static/images/u159_mouseOver.png",
+                "operateName": "密码重置"
+            },
+            {
+                "icon": "../../static/images/u164.png",
+                "icon_hover": "../../static/images/u164_mouseOver.png",
+                "operateName": "宽带业务"
+            },
+            {
+                "icon": "../../static/images/u169.png",
+                "icon_hover": "../../static/images/u169_mouseOver.png",
+                "operateName": "增值业务"
+            }
+
+        ]
+    }
+]

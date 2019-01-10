@@ -1,0 +1,74 @@
+[{
+        "baseInfor": "基本信息",
+        "Infor": [{
+            "title": "手机号码：",
+            "value": 13500008888,
+            "hasClass": true
+        }, {
+            "title": "客户姓名：",
+            "value": "王小明"
+        }, {
+            "title": "客户类型：",
+            "value": " ",
+            "disable": true
+        }]
+    },
+    {
+        "baseInfor": "业务信息",
+        "Infor": [{
+            "title": "品牌名称：",
+            "value": "全球通"
+        }, {
+            "title": "归属区域：",
+            "value": "福建福州"
+        }, {
+            "title": "用户状态：",
+            "value": " ",
+            "disable": true
+        }, {
+            "title": "开打时间：",
+            "value": "2012-10-0"
+        }, {
+            "title": "基本产品：",
+            "value": " ",
+            "disable": true
+        }, {
+            "title": "当前积分：",
+            "value": 5000
+        }, {
+            "title": "可用余额：",
+            "value": 70.32,
+            "disable": true
+        }, {
+            "title": "欠费金额：",
+            "value": 0.00
+        }]
+    },
+    {
+        "baseInfor": "其他信息",
+        "Infor": [{
+            "title": "新档标志：",
+            "value": " ",
+            "disable": true
+        }, {
+            "title": "是否实名：",
+            "value": "是"
+        }, {
+            "title": "核实标识：",
+            "value": " ",
+            "disable": true
+        }, {
+            "title": "携号信息：",
+            "value": " ",
+            "disable": true
+        }, {
+            "title": "信用等级：",
+            "value": " ",
+            "disable": true
+        }, {
+            "title": "用户星级：",
+            "value": " ",
+            "disable": true
+        }]
+    }
+]

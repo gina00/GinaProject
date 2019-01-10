@@ -1,0 +1,26 @@
+.side-content {
+    position: fixed;
+    width: 230px;
+    height: 100%;
+    transition: width 0.28s;
+    // font-size: 0;
+    top: 80px;
+    left: 0;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 1px 0px 1px #eaeaea;
+    .el-scrollbar__view {
+        height: 100%;
+        .el-menu {
+            height: 100%;
+        }
+    }
+    .el-scrollbar__wrap {
+        overflow-x: hidden;
+    }
+    .el-submenu {
+        .el-menu-item {
+            min-width: 179px !important;
+        }
+    }
+}
