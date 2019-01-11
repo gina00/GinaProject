@@ -1,10 +1,10 @@
 <template>
-  <el-row :gutter="40">
-    <el-col :span="11" v-for="(item,index) in list" :key="index">
+  <el-row :gutter="20">
+    <el-col :span="8" v-for="(item,index) in list" :key="index">
       <el-card :body-style="{ padding: '5px' }" shadow="hover">
         <div class="imgBox">
-            <a :href="item.href">
-          <img :src="item.imageSrc" class="image">
+          <a :href="item.href" target="_blank">
+            <img :src="item.imageSrc" class="image">
           </a>
           <div class="mask"></div>
         </div>
@@ -55,29 +55,29 @@ export default {
   }
 }
 
-.imgBox{
-    height: 260px;
+.imgBox {
+  height: 220px;
   border-bottom: 1px solid #e9e9e9;
   overflow: hidden;
   cursor: pointer;
-//   .mask{
-//       display: none;
-//   }
-//   &:hover{
-//        .mask{
-//       display: block;
-//       background: #000;
-//       opacity: 0.3;
-//   }
-  
-.image {
-  width: 100%;
-  display: block;
-  transition:ease 1s;
-  &:hover{
-      transform:scale(1.1,1.1);
+  //   .mask{
+  //       display: none;
+  //   }
+  //   &:hover{
+  //        .mask{
+  //       display: block;
+  //       background: #000;
+  //       opacity: 0.3;
+  //   }
+
+  .image {
+    width: 100%;
+    display: block;
+    transition: ease 1s;
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
   }
-}
 }
 
 .textBox {
@@ -103,8 +103,8 @@ export default {
     }
   }
 }
-[class*=el-col-]{
-    margin-bottom: 20px;
+[class*="el-col-"] {
+  margin-bottom: 20px;
 }
 
 .time {
@@ -121,7 +121,6 @@ export default {
   padding: 0;
   float: right;
 }
-
 
 .clearfix:before,
 .clearfix:after {

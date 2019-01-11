@@ -8,9 +8,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 //加载本地json数据
-var businessData = require('./data/hotBusiness.json');
-var userData = require('./data/userInfor.json');
 var projectListData = require('./data/projectList.json');
+var bannerListData = require('./data/bannerList.json');
 // 被这个路由拦截掉了
 // appRouter.route('/:apiName')
 //     .get(function(req, res) {
@@ -35,9 +34,12 @@ app.get('/api', function(req, res) {
     res.send('Hello World!');
 })
 
-
 app.get('/api/projectList', function(req, res) {
     res.json(projectListData)
+})
+
+app.get('/api/bannerList', function(req, res) {
+    res.json(bannerListData)
 })
 
 app.post('/api/testUser', urlencodedParser, function(req, res) {
