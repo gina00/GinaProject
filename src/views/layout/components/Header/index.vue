@@ -7,7 +7,11 @@
       <span>GinaProject</span>
     </div>
     <div class="iconBox">
-      <a class="fa fa-bell-o" aria-hidden="true"></a>
+      <a>
+        <el-badge is-dot class="item">
+          <i class="fa fa-bell-o" aria-hidden="true"></i>
+        </el-badge>
+      </a>
       <a>
         <el-dropdown trigger="click">
           <span class="el-dropdown-link fa fa-user-circle-o">

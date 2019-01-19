@@ -57,7 +57,7 @@ export default {
 }
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 230px;
+  width: 231px;
   min-height: 400px;
   border-top: 1px solid #36424d;
   color: #fff;

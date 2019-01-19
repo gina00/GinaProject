@@ -28,8 +28,19 @@ export const constantRouterMap = [{
             component: () =>
                 import ('@/views/project/index')
         }]
-    }
+    },
 
+    {
+        path: '/question',
+        component: Layout,
+        redirect: '/question/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/question/index')
+        }]
+    }
 
 ]
 

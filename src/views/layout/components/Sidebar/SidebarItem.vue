@@ -12,7 +12,7 @@
             <span slot="title" class="itemText">项目案例</span>
         </el-menu-item>
     </router-link>
-    <router-link to="/totalordermanage">
+    <router-link to="/question">
         <el-menu-item index="totalordermanage/index">
         <i class="fa fa-credit-card" aria-hidden="true"></i>
             <span slot="title" class="itemText">问题总结</span>
