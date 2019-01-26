@@ -22,7 +22,20 @@ Vue.prototype.$echarts = ECharts
     /* eslint-disable no-new */
 Vue.prototype.$jsPlumb = jsPlumb.jsPlumb
 Vue.prototype.$axios = axios
+
 Vue.use(VueResource)
+    //要给axios添加拦截器，为每个请求添加 heard
+    // http request 拦截器
+axios.interceptors.request.use(
+    config => {
+
+        config.headers.Authorization = "Basic YWRtaW46NjgwNzEx";
+
+        return config;
+    },
+    err => {
+        return Promise.reject(err);
+    });
 
 new Vue({
     el: '#app',

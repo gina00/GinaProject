@@ -24,6 +24,12 @@
         <span slot="title" class="itemText">关于我</span>
     </el-menu-item>
     </router-link>
+    <router-link to="/monitor">
+    <el-menu-item index="monitor/index">
+    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+        <span slot="title" class="itemText">监控概览</span>
+    </el-menu-item>
+    </router-link>
 </div>
 </template>
 

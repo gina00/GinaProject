@@ -40,6 +40,17 @@ export const constantRouterMap = [{
             component: () =>
                 import ('@/views/question/index')
         }]
+    },
+    {
+        path: '/monitor',
+        component: Layout,
+        redirect: '/monitor/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/monitor/index')
+        }]
     }
 
 ]
