@@ -46,6 +46,9 @@ export default {
       else if(this.$route.path.indexOf("/shoppingmanage/index") == 0) {
         return "shoppingmanage/index";
       }
+      else if(this.$route.path.indexOf("/monitor/index") == 0) {
+        return "monitor/index";
+      }
     }
   }
 };

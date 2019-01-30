@@ -1,5 +1,5 @@
 <template>
-<el-table :data="bigTableData" style="width: 100%">
+<el-table :data="moduleList" style="width: 100%" class="tableHeight">
     <el-table-column type="expand">
         <template slot-scope="props">
             <el-table :data="tableData[props.row.key]" stripe style="width: 100%">
@@ -26,11 +26,15 @@ export default {
     data() {
         return {
             list: [],
-            //模块列表
+            //重组数据结构，新建模块列表
             moduleList: [{
                     name: "系统管理",
                     key: "sysmgr",
-                    //一个模块有多个工程，工程列表
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
                     projectList: [{
                             componentKey: "com.newland.paas.paasservice:sysmgr"
                         },
@@ -42,6 +46,11 @@ export default {
                 {
                     name: "资源管理",
                     key: "resmgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
                     projectList: [{
                             componentKey: "com.newland.paas.paasservice:resmgr"
                         },
@@ -49,40 +58,166 @@ export default {
                             componentKey: "com.newland.paas.paasdatamodule:resmgr-data-module"
                         }
                     ]
+                },
+                {
+                    name: "应用管理",
+                    key: "appmgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:appmgr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:appmgr-data-module"
+                        }
+                    ]
+                },
+                {
+                    name: "服务管理",
+                    key: "svrmgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:svrmgr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:svrmgr-data-module"
+                        }
+                    ]
+                },
+                {
+                    name: "框架管理",
+                    key: "frwmgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:frwmgr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:framework-data-module"
+                        }
+                    ]
+                },
+                {
+                    name: "资产管理",
+                    key: "astmgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:astmgr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:astmgr-data-module"
+                        }
+                    ]
+                },
+                {
+                    name: "集群管理",
+                    key: "clumgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:clumgr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:clumgr-data-module"
+                        }
+                    ]
+                },
+                {
+                    name: "脚本管理",
+                    key: "scpmgr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:scpmgr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:scpmgr-data-module"
+                        }
+                    ]
+                },
+                {
+                    name: "公共",
+                    key: "common",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:auth"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasservice:gateway"
+                        }
+                    ]
+                },
+                {
+                    name: "执行引擎",
+                    key: "execute-engine-svr",
+                     bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                    projectList: [{
+                            componentKey: "com.newland.paas.paasservice:execute-engine-svr"
+                        },
+                        {
+                            componentKey: "com.newland.paas.paasdatamodule:execengn-data-module"
+                        }
+                    ]
                 }
             ],
+
             bigTableData: [{
-                    name: "系统管理",
                     key: "sysmgr",
-                    bugs: 2,
-                    vulnerabilities: 1,
-                    code_smells: 3,
-                    coverage: '20%',
-                    duplicated_lines_density: '20%',
+                    bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
                 },
                 {
                     name: "资源名称",
                     key: "resmgr",
-                    bugs: 3,
-                    vulnerabilities: 3,
-                    code_smells: 2,
-                    coverage: '20%',
-                    duplicated_lines_density: '20%',
-                }
-            ],
+                    bugs: 0,
+                    vulnerabilities: 0,
+                    code_smells: 0,
+                    coverage: 0,
+                    duplicated_lines_density: 0,
+                }],
             tableData: {
                 sysmgr: [],
                 resmgr: []
             }
         };
     },
-  
-    mounted() {
-        //this.getMenuInfo();
+
+    mounted() {        
         this.getProjectData();
     },
     methods: {
-        //监视小表格数据，有变动就触发求和,为什么没有运行呢
+        //监视小表格数据，有变动就触发求和
         sumTableData: function () {
             for (const modelKey in this.tableData) {
                 var sum = {
@@ -98,40 +233,42 @@ export default {
                 if (this.tableData.hasOwnProperty(modelKey)) {
                     const modelData = this.tableData[modelKey];
                     modelData.forEach(element => {
-                        sum.bugs += element.bugs;
-                        sum.vulnerabilities += element.vulnerabilities;
-                        sum.code_smells += element.code_smells;
-                        sum.coverage += element.coverage;
-                        sum.duplicated_lines_density += element.duplicated_lines_density;
+                        sum.bugs += Number(element.bugs);
+                        sum.vulnerabilities += Number(element.vulnerabilities);
+                        sum.code_smells += Number(element.code_smells);
+                        sum.coverage += Number(element.coverage);
+                        sum.duplicated_lines_density += Number(element.duplicated_lines_density);
                     });
 
                 }
                 //设置到大表数据
-                this.bigTableData.forEach(element => {
+                this.moduleList.forEach(element => {
                     if (element.key == modelKey) {
-                        element.bugs = sum.bugs;
-                        element.vulnerabilities = sum.vulnerabilities;
-                        element.code_smells = sum.code_smells;
-                        element.coverage = sum.coverage;
-                        element.duplicated_lines_density = sum.duplicated_lines_density;
+                        element.bugs = Number(sum.bugs);
+                        element.vulnerabilities = Number(sum.vulnerabilities);
+                        element.code_smells = Number(sum.code_smells);
+                        element.coverage = Number(sum.coverage)+"%";
+                        element.duplicated_lines_density = Number(sum.duplicated_lines_density)+"%";
                     }
                 });
             }
         },
-        // getMenuInfo() {
-        //   //定义我需要的指标项数据结构
-        //   // var metricMap = [{ metricName: "code_smells", metricdes: "异味" }];
-        //   // var metricList = ["code_smells","bugs"];
-        //   this.$axios
-        //     .get(
-        //       "/sonar/api/measures/component?additionalFields=metrics%2Cperiods&componentKey=com.newland.paas.paasservice%3Aresmgr&metricKeys=alert_status%2Cquality_gate_details%2Cbugs%2Cnew_bugs%2Creliability_rating%2Cnew_reliability_rating%2Cvulnerabilities%2Cnew_vulnerabilities%2Csecurity_rating%2Cnew_security_rating%2Ccode_smells%2Cnew_code_smells%2Csqale_rating%2Cnew_maintainability_rating%2Csqale_index%2Cnew_technical_debt%2Ccoverage%2Cnew_coverage%2Cnew_lines_to_cover%2Ctests%2Cduplicated_lines_density%2Cnew_duplicated_lines_density%2Cduplicated_blocks%2Cncloc%2Cncloc_language_distribution%2Cprojects%2Cnew_lines"
-        //     )
-        //     .then(response => {
-        //       this.list = response.data;
-        //       console.log(this.list);
-        //     });
-        // },
-        //遍历modelList ,调用getModuleInfo
+        //遍历modelList ,调用getModuleInfo,拿到各个模块的具体数据
+        getProjectData() {
+            var newKey = "";
+            for (var i = 0; i < this.moduleList.length; i++) {
+                var modelkey = this.moduleList[i].key;
+                //初始化tableData每个项目的数据为空数组
+                this.$set(this.tableData,modelkey,[]);
+                var projectList = this.moduleList[i].projectList;
+                projectList.forEach(element => {
+                    //console.log(`获取模块${modelkey}的项目${element.componentKey}的数据`);
+                    this.getModuleInfo(modelkey, element.componentKey);
+                });
+                
+
+            }
+        },
         getModuleInfo(modelkey, componentKey) {
             this.$axios
                 .get(
@@ -148,36 +285,36 @@ export default {
                     this.tableData[modelkey].push(data);
                     //这样影响性能，先这样吧
                     this.sumTableData();
-
                 });
             return this.list;
         },
-        // 现在完善这个方法就好了，你来我来？我要去尿尿，可以不去？下班了  不高了  
+        
+        //过滤出每个工程对应的bugs等等的数值value
+        myfilterVal(key, arr) {
+            var value = 0;
+            if (arr && arr.length > 0) {
+                var afterFilterList = arr.filter(item => item.metric == key); //过滤后，只有一个数据的数组
+                if (afterFilterList) {
+                    value = afterFilterList[0].value || afterFilterList[0].periods[0].value;
+                }
+            }
+            return value;
+        },
+        // 现在完善这个方法就好了
         parse(measures) {
             // result就是小表格的单条记录，要从measures里面过滤出来
             var result = {
-                bugs: 0,
-                vulnerabilities: 1,
-                code_smells: 3,
-                coverage: 20,
-                duplicated_lines_density: 20,
+                bugs: this.myfilterVal('bugs', this.list.component.measures),
+                vulnerabilities: this.myfilterVal('vulnerabilities', this.list.component.measures),
+                code_smells: this.myfilterVal('code_smells', this.list.component.measures),
+                coverage: this.myfilterVal('coverage', this.list.component.measures),
+                duplicated_lines_density: this.myfilterVal('duplicated_lines_density', this.list.component.measures),
             };
 
             return result;
 
         },
-        getProjectData() {
-            var newKey = "";
-            for (var i = 0; i < this.moduleList.length; i++) {
-                var modelkey = this.moduleList[i].key;
-                var projectList = this.moduleList[i].projectList;
-                projectList.forEach(element => {
-                    console.log(`获取模块${modelkey}的项目${element.componentKey}的数据`);
-                    this.getModuleInfo(modelkey, element.componentKey);
-                });
 
-            }
-        }
     }
 };
 </script>
@@ -196,5 +333,9 @@ export default {
     margin-right: 0;
     margin-bottom: 0;
     width: 50%;
+}
+.tableHeight{
+    height: 555px;
+  overflow: scroll;
 }
 </style>

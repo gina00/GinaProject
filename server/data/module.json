@@ -1,62 +1,27 @@
 {
     "component": {
-        "id": "AWe6HVsUU1-dOi3MlSUv",
-        "key": "com.newland.paas.paasservice:frwmgr",
-        "name": "frwmgr",
+        "id": "AWbnsdL25YHDkpXWjreA",
+        "key": "com.newland.paas.paasservice:resmgr",
+        "name": "resmgr",
         "description": "Spring Cloud Starter Parent",
         "qualifier": "BRC",
-        "path": "frwmgr",
+        "path": "resmgr",
         "measures": [{
-            "metric": "new_code_smells",
-            "periods": [{
-                "index": 1,
-                "value": "32",
-                "bestValue": false
-            }]
-        }, {
-            "metric": "new_security_rating",
-            "periods": [{
-                "index": 1,
-                "value": "1.0",
-                "bestValue": true
-            }]
-        }, {
-            "metric": "bugs",
-            "value": "0",
-            "periods": [{
-                "index": 1,
-                "value": "0",
-                "bestValue": true
-            }],
-            "bestValue": true
-        }, {
-            "metric": "tests",
-            "value": "23",
-            "periods": [{
-                "index": 1,
-                "value": "23"
-            }]
-        }, {
             "metric": "new_duplicated_lines_density",
             "periods": [{
                 "index": 1,
-                "value": "3.85847611087895",
+                "value": "2.29419703103914",
                 "bestValue": false
             }]
         }, {
-            "metric": "ncloc",
-            "value": "3416",
+            "metric": "reliability_rating",
+            "value": "5.0",
             "periods": [{
                 "index": 1,
-                "value": "3416"
-            }]
-        }, {
-            "metric": "new_vulnerabilities",
-            "periods": [{
-                "index": 1,
-                "value": "0",
-                "bestValue": true
-            }]
+                "value": "0.0",
+                "bestValue": false
+            }],
+            "bestValue": false
         }, {
             "metric": "new_reliability_rating",
             "periods": [{
@@ -65,64 +30,6 @@
                 "bestValue": true
             }]
         }, {
-            "metric": "new_lines_to_cover",
-            "periods": [{
-                "index": 1,
-                "value": "1312"
-            }]
-        }, {
-            "metric": "duplicated_blocks",
-            "value": "10",
-            "periods": [{
-                "index": 1,
-                "value": "10",
-                "bestValue": false
-            }],
-            "bestValue": false
-        }, {
-            "metric": "ncloc_language_distribution",
-            "value": "java=3282;xml=134"
-        }, {
-            "metric": "new_technical_debt",
-            "periods": [{
-                "index": 1,
-                "value": "306",
-                "bestValue": false
-            }]
-        }, {
-            "metric": "security_rating",
-            "value": "1.0",
-            "periods": [{
-                "index": 1,
-                "value": "1.0",
-                "bestValue": true
-            }],
-            "bestValue": true
-        }, {
-            "metric": "code_smells",
-            "value": "32",
-            "periods": [{
-                "index": 1,
-                "value": "32",
-                "bestValue": false
-            }],
-            "bestValue": false
-        }, {
-            "metric": "new_lines",
-            "periods": [{
-                "index": 1,
-                "value": "7179"
-            }]
-        }, {
-            "metric": "duplicated_lines_density",
-            "value": "5.0",
-            "periods": [{
-                "index": 1,
-                "value": "5.0",
-                "bestValue": false
-            }],
-            "bestValue": false
-        }, {
             "metric": "new_bugs",
             "periods": [{
                 "index": 1,
@@ -130,30 +37,102 @@
                 "bestValue": true
             }]
         }, {
-            "metric": "sqale_rating",
-            "value": "1.0",
+            "metric": "new_lines_to_cover",
             "periods": [{
                 "index": 1,
-                "value": "1.0",
-                "bestValue": true
-            }],
-            "bestValue": true
+                "value": "99"
+            }]
         }, {
-            "metric": "coverage",
-            "value": "27.4",
+            "metric": "new_technical_debt",
             "periods": [{
                 "index": 1,
-                "value": "27.4",
+                "value": "281",
+                "bestValue": false
+            }]
+        }, {
+            "metric": "security_rating",
+            "value": "5.0",
+            "periods": [{
+                "index": 1,
+                "value": "0.0",
                 "bestValue": false
             }],
             "bestValue": false
         }, {
-            "metric": "new_coverage",
+            "metric": "new_security_rating",
             "periods": [{
                 "index": 1,
-                "value": "27.3780487804878",
+                "value": "2.0",
                 "bestValue": false
             }]
+        }, {
+            "metric": "tests",
+            "value": "26",
+            "periods": [{
+                "index": 1,
+                "value": "26"
+            }]
+        }, {
+            "metric": "sqale_index",
+            "value": "1415",
+            "periods": [{
+                "index": 1,
+                "value": "-744",
+                "bestValue": false
+            }],
+            "bestValue": false
+        }, {
+            "metric": "bugs",
+            "value": "8",
+            "periods": [{
+                "index": 1,
+                "value": "-8",
+                "bestValue": false
+            }],
+            "bestValue": false
+        }, {
+            "metric": "code_smells",
+            "value": "184",
+            "periods": [{
+                "index": 1,
+                "value": "-158",
+                "bestValue": false
+            }],
+            "bestValue": false
+        }, {
+            "metric": "new_vulnerabilities",
+            "periods": [{
+                "index": 1,
+                "value": "2",
+                "bestValue": false
+            }]
+        }, {
+            "metric": "coverage",
+            "value": "9.4",
+            "periods": [{
+                "index": 1,
+                "value": "9.4",
+                "bestValue": false
+            }],
+            "bestValue": false
+        }, {
+            "metric": "sqale_rating",
+            "value": "1.0",
+            "periods": [{
+                "index": 1,
+                "value": "0.0",
+                "bestValue": false
+            }],
+            "bestValue": true
+        }, {
+            "metric": "duplicated_lines_density",
+            "value": "3.2",
+            "periods": [{
+                "index": 1,
+                "value": "-0.3",
+                "bestValue": false
+            }],
+            "bestValue": false
         }, {
             "metric": "new_maintainability_rating",
             "periods": [{
@@ -162,32 +141,53 @@
                 "bestValue": true
             }]
         }, {
-            "metric": "sqale_index",
-            "value": "306",
+            "metric": "ncloc",
+            "value": "5613",
             "periods": [{
                 "index": 1,
-                "value": "306",
+                "value": "-42"
+            }]
+        }, {
+            "metric": "vulnerabilities",
+            "value": "10",
+            "periods": [{
+                "index": 1,
+                "value": "2",
                 "bestValue": false
             }],
             "bestValue": false
         }, {
-            "metric": "reliability_rating",
-            "value": "1.0",
-            "periods": [{
-                "index": 1,
-                "value": "1.0",
-                "bestValue": true
-            }],
-            "bestValue": true
-        }, {
-            "metric": "vulnerabilities",
-            "value": "0",
+            "metric": "duplicated_blocks",
+            "value": "16",
             "periods": [{
                 "index": 1,
                 "value": "0",
                 "bestValue": true
             }],
-            "bestValue": true
+            "bestValue": false
+        }, {
+            "metric": "new_code_smells",
+            "periods": [{
+                "index": 1,
+                "value": "54",
+                "bestValue": false
+            }]
+        }, {
+            "metric": "ncloc_language_distribution",
+            "value": "java=5497;xml=116"
+        }, {
+            "metric": "new_coverage",
+            "periods": [{
+                "index": 1,
+                "value": "28.1879194630872",
+                "bestValue": false
+            }]
+        }, {
+            "metric": "new_lines",
+            "periods": [{
+                "index": 1,
+                "value": "741"
+            }]
         }]
     },
     "metrics": [{
@@ -495,7 +495,8 @@
     }],
     "periods": [{
         "index": 1,
-        "mode": "previous_version",
-        "date": "2018-11-06T07:01:03+0000"
+        "mode": "days",
+        "date": "2019-01-28T03:30:12+0000",
+        "parameter": "1"
     }]
 }
