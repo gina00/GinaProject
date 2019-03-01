@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Layout from '../views/layout/Layout.vue'
+import Tree from '../views/question/components/echart-tree.vue'
 
 Vue.use(Router)
 
@@ -50,6 +51,17 @@ export const constantRouterMap = [{
             path: 'index',
             component: () =>
                 import ('@/views/monitor/index')
+        }]
+    },
+    {
+        path: '/question/tree',
+        component: Layout,
+        redirect: '/question/components/echart-tree',
+        hidden: true,
+        children: [{
+            path: '/question/components/echart-tree',
+            component: () =>
+                import ('@/views/question/components/echart-tree')
         }]
     }
 
