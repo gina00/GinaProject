@@ -251,12 +251,13 @@ export default {
             var newNumVal = 0;
             var Day = 0;
             for (var i = 0; i < this.list.length; i++) {
-                if (this.list[i].name == '异味'||this.list[i].name == '重复') {
+                if (this.list[i].name == '异味') {
                     newDebtVal = this.list[i].newData;
-                    newNumVal=this.list[i].newNum;
                     this.list[i].newData=Math.round((newDebtVal / 60) / 8);
-                    this.list[i].newNum=Math.round(newNumVal);
                 }
+                newNumVal=this.list[i].newNum;
+                debugger;
+                this.list[i].newNum=Math.floor(newNumVal);
                 //=this.list[i].newData.toFixed(2);
                 console.log(this.list[i].newData);
             }
@@ -315,7 +316,7 @@ export default {
                 padding: 10px 0;
 
                 .numBox {
-                    margin-right: 15px;
+                    margin-right: 12px;
 
                     .card-panel-num {
                         font-size: 24px;

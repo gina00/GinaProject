@@ -247,8 +247,8 @@ export default {
                         element.bugs = Number(sum.bugs);
                         element.vulnerabilities = Number(sum.vulnerabilities);
                         element.code_smells = Number(sum.code_smells);
-                        element.coverage = Number(sum.coverage)+"%";
-                        element.duplicated_lines_density = Number(sum.duplicated_lines_density)+"%";
+                        element.coverage =sum.coverage.toFixed(2)+"%";
+                        element.duplicated_lines_density = sum.duplicated_lines_density.toFixed(2)+"%";
                     }
                 });
             }
@@ -335,7 +335,7 @@ export default {
     width: 50%;
 }
 .tableHeight{
-    height: 555px;
+    height: 578px;
   overflow: scroll;
 }
 </style>

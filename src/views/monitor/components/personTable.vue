@@ -81,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .tableHeight {
-    height: 555px;
+    height: 578px;
     overflow: scroll;
 }
 </style>
