@@ -63,6 +63,17 @@ export const constantRouterMap = [{
             component: () =>
                 import ('@/views/question/components/echart-tree')
         }]
+    },
+    {
+        path: '/question/graph',
+        component: Layout,
+        redirect: '/question/components/graph',
+        hidden: true,
+        children: [{
+            path: '/question/components/graph',
+            component: () =>
+                import ('@/views/question/components/graph')
+        }]
     }
 
 ]

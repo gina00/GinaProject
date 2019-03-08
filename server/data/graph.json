@@ -1,0 +1,107 @@
+{
+    "content": {
+        "data": [{
+                "id": 100000016,
+                "jobGroup": 500000020,
+                "jobCron": "0 * * * * ? *",
+                "jobDesc": "flow-root",
+                "addTime": "2019-03-01 14:15:49",
+                "updateTime": "2019-03-01 14:15:49",
+                "author": "sd",
+                "executorRouteStrategy": "FIRST",
+                "executorHandler": "demoJobHandler",
+                "executorBlockStrategy": "SERIAL_EXECUTION",
+                "executorTimeout": 0,
+                "executorFailRetryCount": 0,
+                "glueType": "BEAN",
+                "glueRemark": "GLUE代码初始化",
+                "glueUpdatetime": "2019-03-01 14:15:49",
+                "type": "JOB_FLOW",
+                "clusterId": 1001,
+                "createDate": "2019-03-01 14:21:55",
+                "changeDate": "2019-03-01 14:21:55",
+                "name": "100000016"
+            },
+            {
+                "id": 100000017,
+                "jobGroup": 500000020,
+                "jobCron": "0 * * * * ? *",
+                "jobDesc": "flow-node",
+                "addTime": "2019-03-01 14:16:19",
+                "updateTime": "2019-03-01 14:16:19",
+                "author": "sd",
+                "executorRouteStrategy": "FIRST",
+                "executorHandler": "demoJobHandler",
+                "executorParam": "flow-node",
+                "executorBlockStrategy": "SERIAL_EXECUTION",
+                "executorTimeout": 0,
+                "executorFailRetryCount": 0,
+                "glueType": "BEAN",
+                "glueRemark": "GLUE代码初始化",
+                "glueUpdatetime": "2019-03-01 14:16:19",
+                "name": "100000017"
+            },
+            {
+                "id": 100000018,
+                "jobGroup": 500000020,
+                "jobCron": "0 * * * * ? *",
+                "jobDesc": "flow-node2",
+                "addTime": "2019-03-05 13:51:34",
+                "updateTime": "2019-03-05 13:51:34",
+                "author": "sd",
+                "executorRouteStrategy": "FIRST",
+                "executorHandler": "demoJobHandler",
+                "executorBlockStrategy": "SERIAL_EXECUTION",
+                "executorTimeout": 0,
+                "executorFailRetryCount": 0,
+                "glueType": "BEAN",
+                "glueRemark": "GLUE代码初始化",
+                "glueUpdatetime": "2019-03-05 13:51:34",
+                "name": "100000018"
+            },
+            {
+                "id": 100000019,
+                "jobGroup": 500000020,
+                "jobCron": "0 * * * * ? *",
+                "jobDesc": "flow-node3",
+                "addTime": "2019-03-05 13:55:09",
+                "updateTime": "2019-03-05 13:55:09",
+                "author": "sd",
+                "executorRouteStrategy": "FIRST",
+                "executorHandler": "demoJobHandler",
+                "executorBlockStrategy": "SERIAL_EXECUTION",
+                "executorTimeout": 0,
+                "executorFailRetryCount": 0,
+                "glueType": "BEAN",
+                "glueRemark": "GLUE代码初始化",
+                "glueUpdatetime": "2019-03-05 13:55:09",
+                "type": "ss",
+                "clusterId": 130000000814,
+                "tenantId": 1,
+                "appId": 120,
+                "createDate": "2019-02-28 15:27:36",
+                "changeDate": "2019-02-28 15:27:36",
+                "name": "100000019"
+            }
+
+        ],
+        "links": [{
+                "source": "100000016",
+                "target": "100000017"
+            },
+            {
+                "source": "100000016",
+                "target": "100000018"
+            },
+            {
+                "source": "100000017",
+                "target": "100000019"
+            },
+            {
+                "source": "100000018",
+                "target": "100000019"
+            }
+        ]
+    },
+    "appVersion": {}
+}

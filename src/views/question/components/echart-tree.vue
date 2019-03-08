@@ -1,24 +1,25 @@
 <template>
-  <section>
-    <div class="tree-container">
+  <section v-on:contextmenu="closeCurrentRightMenu()">
+    <div v-on:contextmenu="closeCurrentRightMenu()" class="tree-container">
       <div :class="className" id="myChart" :style="{height:height,width:width}" ref="myEchart"></div>
-      <div class="left-hover-menu">
-        <div>中文名: 报表</div>
+      <div class="menuBox left-hover-menu" :v-show="isShow" v-bind:style="styleObject">
+        <div>节点详情</div>
         <div>英文名:data charts</div>
         <div>产品域定义:用于记录各种数据.</div>
       </div>
 
-      <div class="right-click-menu">
-        <div>新增业务对象</div>
-        <div>编辑</div>
-        <div>删除</div>
-      </div>
+      <!-- <div :v-show="!isShow" v-bind:style="styleObject" class="menuBox rightClickMenu" >
+            <div>右键菜单业务对象</div>
+            <div>编辑</div>
+            <div>删除</div>
+      </div>-->
     </div>
   </section>
 </template>
 
 <script>
 import echarts from "echarts";
+import { relative } from "path";
 require("echarts/theme/infographic"); // echarts theme
 export default {
   props: {
@@ -44,6 +45,14 @@ export default {
   },
   data() {
     return {
+      styleObject: {
+        color: "#333",
+        fontSize: "13px",
+        position: "absolute",
+        left: 123,
+        top: 123
+      },
+      isShow: false,
       chart: null,
       treeList: {},
       option: null
@@ -53,6 +62,11 @@ export default {
     this.initChart();
   },
   methods: {
+    closeCurrentRightMenu() {
+      //奇怪了 怎么关不掉原生的右键菜单。你研究下吧  哈哈
+      //debugger;
+      return false;
+    },
     initChart() {
       let data = {};
       this.chart = echarts.init(
@@ -61,10 +75,7 @@ export default {
       );
       this.chart.showLoading();
       this.$axios.get("/api/treeList").then(response => {
-        //新增点击
-        this.chart.on("click", lefClickFun);
         //
-
         this.treeList = response.data;
         this.chart.hideLoading();
         this.chart.setOption(
@@ -110,55 +121,40 @@ export default {
             ]
           })
         );
-        this.chart.on("mouseover", function(params) {
+        var self = this;
+        this.chart.on("click", params => {
           console.log(params);
-          $(".left-hover-menu").css({
-            display: "block",
-            left: params.event.offsetX + 15,
-            top: params.event.offsetY + 15
-          });
-        });
-        this.chart.on("mouseout", function(params) {
-          console.log("out");
-          $(".left-hover-menu").css({
-            display: "none",
-            left: "-9999px",
-            top: "-9999px"
-          });
+          self.isShow = true;
+          self.styleObject.left = params.event.offsetX + 15 + "px";
+          self.styleObject.top = params.event.offsetY + 15 + "px";
         });
 
-        $(".tree-container").bind("contextmenu", function() {
-          return false;
-        }); //防止默认菜单弹出
-        this.chart.on("contextmenu", function(params) {
-          $(".right-click-menu").css({
-            display: "block",
-            left: params.event.offsetX + 15,
-            top: params.event.offsetY + 15
-          });
-        });
-        $(".tree-container").click(function() {
-          $(".right-click-menu").css({
-            display: "none",
-            left: "-9999px",
-            top: "-9999px"
-          });
-        });
+        // this.chart.on("contextmenu",params=> {
+        //     //contextmenu事件，右击触发
+        //     console.log("contextmenu");
+        //     self.isShow = !self.isShow;
+        //     self.styleObject.left = params.event.offsetX + 15+'px';
+        //     self.styleObject.top = params.event.offsetY + 15+'px';
+        // });
+        // $(".tree-container").bind("contextmenu", function() {
+        //   return false;
+        // }); //防止默认菜单弹出
+        // this.chart.on("contextmenu", function(params) {
+        //   $(".right-click-menu").css({
+        //     display: "block",
+        //     left: params.event.offsetX + 15,
+        //     top: params.event.offsetY + 15
+        //   });
+        // });
+        // $(".tree-container").click(function() {
+
+        //   // $(".right-click-menu").css({
+        //   //   display: "none",
+        //   //   left: "-9999px",
+        //   //   top: "-9999px"
+        //   // });
+        // });
       });
-
-      if (this.option && typeof this.option === "object") {
-        this.chart.setOption(this.option, true);
-      }
-      //关键点！左键点击
-      function lefClickFun(nodeName) {
-        if (typeof nodeName.seriesIndex == "undefined") {
-          return;
-        }
-        if (nodeName.type == "click") {
-          alert(nodeName.name);
-        }
-      }
-      function rightClickFun(params) {}
     }
   }
 };
@@ -169,17 +165,28 @@ export default {
   border: 1px solid grey;
   position: relative;
 }
-
+.menuBox {
+  background: #fff;
+  border-radius: 5px;
+  color: #333;
+  border: 1px solid #dbdbdb;
+}
+.menuBox div {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+}
+.menuBox div:hover {
+  cursor: pointer;
+  background: #f5f5f5;
+}
 .left-hover-menu {
   position: absolute;
-  border: 1px solid grey;
   left: -99999px;
   top: -999999px;
 }
 
-.right-click-menu {
+.rightClickMenu {
   position: absolute;
-  border: 1px solid blue;
   left: -99999px;
   top: -999999px;
 }

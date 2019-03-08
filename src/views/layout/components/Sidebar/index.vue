@@ -40,8 +40,8 @@ export default {
       }
       else if (this.$route.path.indexOf("/project") == 0) {
         return "project";
-      } else if (this.$route.path.indexOf("/totalordermanage/index") == 0) {
-        return "totalordermanage/index";
+      } else if (this.$route.path.indexOf("/question") == 0) {
+        return "question/index";
       }
       else if(this.$route.path.indexOf("/shoppingmanage/index") == 0) {
         return "shoppingmanage/index";

@@ -13,7 +13,7 @@
         </el-menu-item>
     </router-link>
     <router-link to="/question">
-        <el-menu-item index="totalordermanage/index">
+        <el-menu-item index="question/index">
         <i class="fa fa-credit-card" aria-hidden="true"></i>
             <span slot="title" class="itemText">问题总结</span>
         </el-menu-item>

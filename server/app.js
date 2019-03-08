@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 var projectListData = require('./data/projectList.json');
 var bannerListData = require('./data/bannerList.json');
 var treeListData = require('./data/flare.json');
+var graphListData = require('./data/graph.json');
 // 被这个路由拦截掉了
 // appRouter.route('/:apiName')
 //     .get(function(req, res) {
@@ -45,6 +46,9 @@ app.get('/api/bannerList', function(req, res) {
 
 app.get('/api/treeList', function(req, res) {
     res.json(treeListData)
+})
+app.get('/api/graphList', function(req, res) {
+    res.json(graphListData)
 })
 
 app.post('/api/testUser', urlencodedParser, function(req, res) {
