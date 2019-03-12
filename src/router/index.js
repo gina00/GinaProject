@@ -74,6 +74,28 @@ export const constantRouterMap = [{
             component: () =>
                 import ('@/views/question/components/graph')
         }]
+    },
+    {
+        path: '/question/jtopo',
+        component: Layout,
+        redirect: '/question/components/jtopo',
+        hidden: true,
+        children: [{
+            path: '/question/components/jtopo',
+            component: () =>
+                import ('@/views/question/components/jtopo')
+        }]
+    },
+    {
+        path: '/question/jsplumb',
+        component: Layout,
+        redirect: '/question/components/jsplumb',
+        hidden: true,
+        children: [{
+            path: '/question/components/jsplumb',
+            component: () =>
+                import ('@/views/question/components/jsplumb')
+        }]
     }
 
 ]

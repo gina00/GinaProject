@@ -45,14 +45,6 @@
           <el-col :span="20" class="val">{{item.changeDate}}</el-col>
         </el-row>
       </template>
-      <!-- <el-table :data="graphList.content.data">
-        <el-table-column prop="jobDesc" label="节点描述"></el-table-column>
-        <el-table-column prop="author" label="作者"></el-table-column>
-        <el-table-column prop="type" label="任务类型"></el-table-column>
-        <el-table-column prop="clusterId" label="集群ID"></el-table-column>
-        <el-table-column prop="createDate" label="创建日期" width="160"></el-table-column>
-        <el-table-column prop="changeDate" label="改变日期" width="160"></el-table-column>
-      </el-table>-->
     </el-dialog>
     <el-dialog title="编辑节点" :visible.sync="editNode">
       <el-form :model="form">
@@ -85,25 +77,15 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="AddNode = false">取 消</el-button>
-        <el-button type="primary" @click="AddNode = false">确 定</el-button>
+        <el-button type="primary" @click="AddNewNode">确 定</el-button>
       </div>
     </el-dialog>
     <el-dialog title="删除节点" :visible.sync="DelNode">
-      <el-form :model="form">
-        <el-form-item label="节点名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="节点类型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
+      <span>是否要删除该节点?</span>
+      <span slot="footer" class="dialog-footer">
         <el-button @click="DelNode = false">取 消</el-button>
         <el-button type="primary" @click="DelNode = false">确 定</el-button>
-      </div>
+      </span>
     </el-dialog>
   </section>
 </template>
@@ -163,9 +145,10 @@ export default {
       formLabelWidth: "120px",
       graphList: {
         content: {
-          data: [],
-          links: []
-        }
+          data: [
+          ]
+        },
+        appVersion: {}
       },
       //保存点击节点后，存放该节点的数据
       clickgraphList: []
@@ -193,17 +176,42 @@ export default {
     isDeleteNode(name, arrName) {
       if (arrName && arrName.length > 0) {
         for (var i = 0; i <= arrName.length; i++) {
-            debugger
-            //有子节点的都不显示删除
-          if (name == arrName[i].source||name != arrName[i].target) {
+          //是否为根节点
+          if (name == arrName[i].source && name != arrName[i].target) {
             this.isDelete = false;
-          }
-          else{
-              this.isDelete = true;
+          } else {
+            this.isDelete = true;
           }
         }
       }
       return this.isDelete;
+    },
+    //添加节点
+    AddNewNode() {
+      var obj = {};
+      obj.name = this.form.name;
+      obj.type = this.form.region;
+      this.graphList.content.data.push(obj);
+      this.AddNode = false;
+      console.log(this.graphList.content.data);
+    },
+    createdNewArr(arr) {
+      var newArr = [];
+      var x=250;
+      var y=0;
+      for (var i = 0; i < arr.length; i++) {
+          debugger;
+          x+=20;
+          y+=20;
+        var newObj = { 
+            name: arr[i].name,
+            x:x,
+            y:y
+            };
+        newArr.push(newObj);
+      }
+      console.log(newArr);
+      return newArr;
     },
     initChart() {
       this.chart = echarts.init(
@@ -215,7 +223,6 @@ export default {
         this.graphList = response.data;
         this.chart.hideLoading();
         var graphNode = this.graphList.content.data;
-        console.log(this.graphList.content.data);
         this.chart.setOption(
           (this.option = {
             title: {
@@ -235,7 +242,7 @@ export default {
             series: [
               {
                 type: "graph",
-                layout: "none",
+                layout: "force",
                 legendHoverLink: true,
                 force: {
                   //力引导图基本配置
@@ -247,8 +254,9 @@ export default {
                   //因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。
                 },
                 //设置球的大小
+                draggable : true,
                 symbolSize: 100,
-                symbol: "roundRect",
+                symbol: "rect", //标记图形 'circle'(圆形), 'rect'（矩形）, 'roundRect'（圆角矩形）, 'triangle'（三角形）, 'diamond'（菱形）, 'pin'（大头针）, 'arrow'（箭头）
                 draggable: true,
                 label: {
                   normal: {
@@ -282,36 +290,13 @@ export default {
                 },
                 lineStyle: {
                   normal: {
-                    color: "#ccc",
-                    opacity: 0.9,
-                    width: 2,
+                    color: "#61b7cf",
+                    opacity: 1,
+                    width: 3,
                     curveness: 0
                   }
                 },
-                data: [
-                  {
-                    name: graphNode[0].name,
-                    x: 250,
-                    y: 0
-                  },
-
-                  {
-                    name: graphNode[1].name,
-                    x: 200,
-                    y: 20
-                  },
-                  {
-                    name: graphNode[2].name,
-                    x: 300,
-                    y: 20
-                  },
-
-                  {
-                    name: graphNode[3].name,
-                    x: 250,
-                    y: 40
-                  }
-                ],
+                data: this.createdNewArr(this.graphList.content.data),
                 // links: [],
                 links: this.graphList.content.links
               }
@@ -363,15 +348,17 @@ export default {
   left: -99999px;
   top: -999999px;
 }
-.detailBox .title{
-    background: #F2F6FC;
-    padding: 15px;
-    text-align: right;
-    font-weight: bold;
-    border-bottom:  1px solid #eee;
-    margin-bottom: 1px;
+.detailBox .title {
+  background: #f2f6fc;
+  padding: 15px;
+  text-align: right;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1px;
 }
-.detailBox .val{
-    padding: 15px;
+.detailBox .val {
+  padding: 15px;
+  background: #f6f6f6;
+  height: 47px;
 }
 </style>

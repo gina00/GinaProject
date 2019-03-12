@@ -46,7 +46,23 @@ export default {
           detail: "研究graph关系图",
           operates: ["查看详情"],
           link: "/question/graph"
-        }
+        },
+        {
+          ID: "jTopo",
+          date: "2019-03-11",
+          type: "jTopo",
+          detail: "研究jTopo关系图",
+          operates: ["查看详情"],
+          link: "/question/jtopo"
+        },
+        {
+          ID: "jsPlumb",
+          date: "2019-03-11",
+          type: "jsPlumb",
+          detail: "研究jTopo关系图",
+          operates: ["查看详情"],
+          link: "/question/jsplumb"
+        },
       ]
     };
   }
