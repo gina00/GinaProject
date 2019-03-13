@@ -96,6 +96,28 @@ export const constantRouterMap = [{
             component: () =>
                 import ('@/views/question/components/jsplumb')
         }]
+    },
+    {
+        path: '/question/g6',
+        component: Layout,
+        redirect: '/question/components/g6',
+        hidden: true,
+        children: [{
+            path: '/question/components/g6',
+            component: () =>
+                import ('@/views/question/components/g6')
+        }]
+    },
+    {
+        path: '/question/g6-edit',
+        component: Layout,
+        redirect: '/question/components/g6-edit',
+        hidden: true,
+        children: [{
+            path: '/question/components/g6-edit',
+            component: () =>
+                import ('@/views/question/components/g6-edit')
+        }]
     }
 
 ]

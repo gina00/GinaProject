@@ -145,8 +145,8 @@ export default {
       formLabelWidth: "120px",
       graphList: {
         content: {
-          data: [
-          ]
+          data: [],
+          links: []
         },
         appVersion: {}
       },
@@ -195,24 +195,36 @@ export default {
       this.AddNode = false;
       console.log(this.graphList.content.data);
     },
-    createdNewArr(arr) {
+    dataNewArr(arr) {
       var newArr = [];
-      var x=250;
-      var y=0;
+      var x = 250;
+      var y = 0;
       for (var i = 0; i < arr.length; i++) {
-          debugger;
-          x+=20;
-          y+=20;
-        var newObj = { 
-            name: arr[i].name,
-            x:x,
-            y:y
-            };
+        debugger;
+        x += 20;
+        y += 20;
+        var newObj = {
+          name: arr[i].name,
+          x: x,
+          y: y
+        };
         newArr.push(newObj);
       }
       console.log(newArr);
       return newArr;
     },
+    // linksNewArr(arr) {//this.graphList.content.links
+    //   var graphLink=[];
+    //   for (var j = 0; j < arr.length; j++) {
+    //     debugger;
+    //     graphLink[j] = {
+    //       source: arr[j]["source"].toString(),
+    //       target: arr[j]["target"].toString()
+    //     };
+    //   }
+    //   console.log(graphLink);
+    //   return graphLink;
+    // },
     initChart() {
       this.chart = echarts.init(
         document.getElementById("myChart"),
@@ -254,7 +266,7 @@ export default {
                   //因为力引导布局会在多次迭代后才会稳定，这个参数决定是否显示布局的迭代动画，在浏览器端节点数据较多（>100）的时候不建议关闭，布局过程会造成浏览器假死。
                 },
                 //设置球的大小
-                draggable : true,
+                draggable: true,
                 symbolSize: 100,
                 symbol: "rect", //标记图形 'circle'(圆形), 'rect'（矩形）, 'roundRect'（圆角矩形）, 'triangle'（三角形）, 'diamond'（菱形）, 'pin'（大头针）, 'arrow'（箭头）
                 draggable: true,
@@ -296,7 +308,7 @@ export default {
                     curveness: 0
                   }
                 },
-                data: this.createdNewArr(this.graphList.content.data),
+                data: this.dataNewArr(this.graphList.content.data),
                 // links: [],
                 links: this.graphList.content.links
               }

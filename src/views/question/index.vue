@@ -63,6 +63,22 @@ export default {
           operates: ["查看详情"],
           link: "/question/jsplumb"
         },
+        {
+          ID: "G6",
+          date: "2019-03-12",
+          type: "AntV",
+          detail: "研究G6关系图",
+          operates: ["查看详情"],
+          link: "/question/g6"
+        },
+        {
+          ID: "G6-Edit",
+          date: "2019-03-12",
+          type: "AntV",
+          detail: "研究G6-Edit关系图",
+          operates: ["查看详情"],
+          link: "/question/g6-edit"
+        },
       ]
     };
   }

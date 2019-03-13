@@ -15,6 +15,7 @@ import jsPlumb from 'jsplumb'
 import axios from "axios"
 import VueResource from 'vue-resource'
 
+
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 Vue.component('v-chart', ECharts)
