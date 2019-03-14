@@ -1,7 +1,35 @@
 <template>
   <div>
     <div id="mountNode"></div>
-    <el-dialog title="新增节点" :visible.sync="AddNode">
+    <el-dialog class="detailBox" title="节点详情" :visible.sync="showNodeDetail">
+      <template v-for="(item,index) in clickgraphList">
+        <el-row :key="index">
+          <el-col :span="4" class="title">节点名称</el-col>
+          <el-col :span="20" class="val">{{item.name}}</el-col>
+        </el-row>
+        <el-row :key="index">
+          <el-col :span="4" class="title">任务集群ID:</el-col>
+          <el-col :span="20" class="val">{{item.jobFlowId}}</el-col>
+        </el-row>
+        <el-row :key="index">
+          <el-col :span="4" class="title">版本</el-col>
+          <el-col :span="20" class="val">{{item.version}}</el-col>
+        </el-row>
+        <el-row :key="index">
+          <el-col :span="4" class="title">集群ID</el-col>
+          <el-col :span="20" class="val">{{item.jobId}}</el-col>
+        </el-row>
+        <el-row :key="index">
+          <el-col :span="4" class="title">创建日期</el-col>
+          <el-col :span="20" class="val">{{item.createDate}}</el-col>
+        </el-row>
+        <el-row :key="index">
+          <el-col :span="4" class="title">改变日期</el-col>
+          <el-col :span="20" class="val">{{item.changeDate}}</el-col>
+        </el-row>
+      </template>
+    </el-dialog>
+    <!-- <el-dialog title="新增节点" :visible.sync="AddNode">
       <el-form :model="form">
         <el-form-item label="节点名称" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -17,14 +45,14 @@
         <el-button @click="AddNode = false">取 消</el-button>
         <el-button type="primary" @click="AddNewNode">确 定</el-button>
       </div>
-    </el-dialog>
+    </el-dialog>-->
   </div>
 </template>
 
 <script>
 import G6 from "@antv/g6";
 import G6Editor from "@antv/g6-editor";
-import "@antv/g6/build/plugin.layout.dagre";
+const G6Plugins = require("@antv/g6/build/plugins");
 export default {
   data() {
     return {
@@ -47,7 +75,7 @@ export default {
         content: {
           data: [
             {
-              id: 1,
+              id: "1",
               name: "root-flow",
               jobFlowId: 100000016,
               version: 1,
@@ -56,7 +84,7 @@ export default {
               jobId: 100000016
             },
             {
-              id: 2,
+              id: "2",
               name: "node-flow2",
               jobFlowId: 100000016,
               version: 1,
@@ -65,7 +93,7 @@ export default {
               jobId: 100000017
             },
             {
-              id: 3,
+              id: "3",
               name: "node-flow3",
               jobFlowId: 100000016,
               version: 1,
@@ -74,7 +102,7 @@ export default {
               jobId: 100000018
             },
             {
-              id: 4,
+              id: "4",
               name: "node-flow4",
               jobFlowId: 100000016,
               version: 1,
@@ -85,27 +113,29 @@ export default {
           ],
           links: [
             {
-              source: 1,
-              target: 2
+              source: "1",
+              target: "2"
             },
             {
-              source: 1,
-              target: 3
+              source: "1",
+              target: "3"
             },
             {
-              source: 2,
-              target: 4
+              source: "2",
+              target: "4"
             },
             {
-              source: 3,
-              target: 4
+              source: "3",
+              target: "4"
             }
           ]
         },
         appVersion: {
           timestamp: "2019-03-12 16:16:36"
         }
-      }
+      },
+      //保存点击节点后，存放该节点的数据
+      clickgraphList: []
     };
   },
   mounted() {
@@ -118,46 +148,41 @@ export default {
         this.graphList = response.data;
       });
     },
-    //添加节点
-    AddNewNode() {
-      var obj = {};
-      obj.name = this.form.name;
-      obj.type = this.form.region;
-      this.graphList.content.data.push(obj);
-      this.AddNode = false;
-      console.log(this.graphList.content.data);
-    },
-    dataNewArr(arr) {
-      var newArr = [];
-      var x = 250;
-      var y = 0;
-      for (var i = 0; i < arr.length; i++) {
-        debugger;
-        x += 20;
-        y += 20;
-        var newObj = {
-          name: arr[i].name,
-          x: x,
-          y: y
-        };
-        newArr.push(newObj);
-      }
-      console.log(newArr);
-      return newArr;
-    },
+    //创建关系图
     create() {
+      const data = {
+        nodes: this.graphList.content.data,
+        edges: this.graphList.content.links
+      };
+      //自定义线
+      G6.registerEdge("VHV", {
+        getPath(item) {
+          debugger;
+          const points = item.getPoints();
+          const start = points[0];
+          const end = points[points.length - 1];
+          const vgap = end.y - start.y;
+          const ygap = (vgap / 4) * 3;
+          return [
+            ["M", start.x, start.y],
+            ["L", start.x, start.y + 45],
+            ["L", end.x, start.y + 78],
+            ["L", end.x, end.y]
+          ];
+        }
+      });
+      //自定义节点-html元素节点
       G6.registerNode("jobNodeCard", {
         // 绘制
         draw(item) {
           const group = item.getGraphicGroup();
           const width = 170;
-          const height = 80;
+          const height = 100;
           const dataModel = item.getModel();
-          console.log(dataModel);
           const html = G6.Util.createDOM(`
           <div class='node'>
             <div class='titleBox'>
-                <div class='nodeID'>${dataModel.name}</div>
+                <div class='nodeID' id='${dataModel.id}'>${dataModel.name}</div>
                 <i class="fa fa-spinner icon" aria-hidden="true"></i>
             </div>
             <div class='editBox'>
@@ -182,28 +207,58 @@ export default {
             }
           });
           return keyShape;
-          anchor: [[0.5, 0], [0.5, 1]];
-        }
+        },
+        anchor: [[0.5, 0], [0.5, 1]]
       });
-      const data = {
-        nodes: this.dataNewArr(this.graphList.content.data)
-      };
+      const dagre = new G6.Layouts.Dagre();
+      //画布定义
+      const plugin = new G6.Plugins["layout.dagre"]();
       const graph = new G6.Graph({
         container: mountNode,
         renderer: "svg",
         width: 1200,
-        height: 600,
+        height: 1200,
         fitView: "tc",
-        plugins: [new G6.Plugins["layout.dagre"]()]
+        plugins: [plugin],
+        layout: new G6.Layouts["Dagre"](),
+        defaultIntersectBox: "jobNodeCard"
       });
+      //节点样式，采用什么节点，此处采用html自定义节点
       graph.node({
         shape: "jobNodeCard"
       });
+      //连接线的样式
       graph.edge({
+        shape: "",
         style: {
-          endArrow: true
+          endArrow: true,
+          lineWidth: 3,
+          stroke: "#0af"
         }
       });
+      //节点点击事件
+
+      graph.on("node:click", ev => {
+        const item = ev.item.getModel();
+        //查看节点详情
+        // document.getElementById(item.id).onclick = function() {
+        //   alert(item.name)
+        // };
+        if (this.showNodeDetail == false) {
+          //过滤点击节点的数据
+          this.clickgraphList = this.graphList.content.data.filter(
+            i => i.name == item.name
+          );
+          this.showNodeDetail = true;
+        } else {
+          this.showNodeDetail = false;
+        }
+        console.log(item);
+        graph.update(item, {
+          showAfter: true
+        });
+      });
+      //   graph.source(data.nodes, data.edges);
       graph.read(data);
     }
   }
@@ -240,5 +295,18 @@ export default {
 .editBox {
   display: flex;
   justify-content: space-between;
+}
+.detailBox .title {
+  background: #f2f6fc;
+  padding: 15px;
+  text-align: right;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1px;
+}
+.detailBox .val {
+  padding: 15px;
+  background: #f6f6f6;
+  height: 47px;
 }
 </style>

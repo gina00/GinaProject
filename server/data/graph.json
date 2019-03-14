@@ -1,7 +1,7 @@
 {
     "content": {
         "data": [{
-                "id": 1,
+                "id": "1",
                 "name": "root-flow",
                 "jobFlowId": 100000016,
                 "version": 1,
@@ -10,7 +10,7 @@
                 "jobId": 100000016
             },
             {
-                "id": 2,
+                "id": "2",
                 "name": "node-flow2",
                 "jobFlowId": 100000016,
                 "version": 1,
@@ -19,7 +19,7 @@
                 "jobId": 100000017
             },
             {
-                "id": 3,
+                "id": "3",
                 "name": "node-flow3",
                 "jobFlowId": 100000016,
                 "version": 1,
@@ -28,7 +28,7 @@
                 "jobId": 100000018
             },
             {
-                "id": 4,
+                "id": " 4",
                 "name": "node-flow4",
                 "jobFlowId": 100000016,
                 "version": 1,
@@ -38,20 +38,20 @@
             }
         ],
         "links": [{
-                "source": 1,
-                "target": 2
+                "source": "1",
+                "target": "2"
             },
             {
-                "source": 1,
-                "target": 3
+                "source": "1",
+                "target": "3"
             },
             {
-                "source": 2,
-                "target": 4
+                "source": "2",
+                "target": "4"
             },
             {
-                "source": 3,
-                "target": 4
+                "source": "3",
+                "target": "4"
             }
         ]
     },
