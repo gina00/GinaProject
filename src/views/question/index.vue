@@ -66,7 +66,7 @@ export default {
         {
           ID: "G6",
           date: "2019-03-12",
-          type: "AntV",
+          type: "AntV G6",
           detail: "研究G6关系图",
           operates: ["查看详情"],
           link: "/question/g6"
@@ -74,10 +74,18 @@ export default {
         {
           ID: "G6-Edit",
           date: "2019-03-12",
-          type: "AntV",
+          type: "AntV G6",
           detail: "研究G6-Edit关系图",
           operates: ["查看详情"],
           link: "/question/g6-edit"
+        },
+        {
+          ID: "G6-Demo",
+          date: "2019-03-12",
+          type: "AntV G6",
+          detail: "研究G6-Demo关系图",
+          operates: ["查看详情"],
+          link: "/question/g6-demo"
         },
       ]
     };

@@ -29,7 +29,7 @@
         </el-row>
       </template>
     </el-dialog>
-    <!-- <el-dialog title="新增节点" :visible.sync="AddNode">
+    <el-dialog title="新增节点" :visible.sync="AddNode">
       <el-form :model="form">
         <el-form-item label="节点名称" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -45,14 +45,14 @@
         <el-button @click="AddNode = false">取 消</el-button>
         <el-button type="primary" @click="AddNewNode">确 定</el-button>
       </div>
-    </el-dialog>-->
+    </el-dialog>
   </div>
 </template>
 
 <script>
 import G6 from "@antv/g6";
 import G6Editor from "@antv/g6-editor";
-const G6Plugins = require("@antv/g6/build/plugins");
+import "@antv/g6/build/plugin.layout.dagre";
 export default {
   data() {
     return {
@@ -141,6 +141,7 @@ export default {
   mounted() {
     this.getData();
     this.create();
+    this.bindingClick();
   },
   methods: {
     getData() {
@@ -208,7 +209,34 @@ export default {
           });
           return keyShape;
         },
-        anchor: [[0.5, 0], [0.5, 1]]
+        anchor(node) {
+          // const hierarchy = node.getHierarchy();
+          const inEdges = node.getInEdges();
+          const outEdges = node.getOutEdges();
+          const inEdgesNum = inEdges.length;
+          const outEdgesNum = outEdges.length;
+          const inAnchorArea = 1 - 1 / (inEdgesNum + 1);
+          const outAnchorArea = 1 - 1 / (outEdgesNum + 1);
+          const inGap = inAnchorArea / inEdgesNum;
+          const outGap = outAnchorArea / outEdgesNum;
+          const inAnchors = getAnchors(inEdgesNum, inGap, "in");
+          const outAnchors = getAnchors(outEdgesNum, outGap, "out");
+          const anchor = inAnchors.concat(outAnchors);
+          return anchor;
+        }
+      });
+      G6.registerNode("rect", {
+        getPath: function getPath(item) {
+          var width = 100; // 一半宽
+          var height = 40; // 一半高
+          return G6.Util.getRectPath(
+            -width / 2,
+            -height / 2,
+            width,
+            height,
+            10
+          );
+        }
       });
       const dagre = new G6.Layouts.Dagre();
       //画布定义
@@ -241,9 +269,9 @@ export default {
       graph.on("node:click", ev => {
         const item = ev.item.getModel();
         //查看节点详情
-        // document.getElementById(item.id).onclick = function() {
-        //   alert(item.name)
-        // };
+        document.getElementById(item.id).onclick = function() {
+          alert("ok");
+        };
         if (this.showNodeDetail == false) {
           //过滤点击节点的数据
           this.clickgraphList = this.graphList.content.data.filter(
@@ -253,6 +281,18 @@ export default {
         } else {
           this.showNodeDetail = false;
         }
+
+        debugger;
+        const adddom = document.getElementById(item.id);
+        document.getElementById(item.id).onclick = function() {
+          var obj = {};
+          obj.name = this.form.name;
+          obj.type = this.form.region;
+          this.graphList.content.data.push(obj);
+          this.AddNode = false;
+          console.log(this.graphList.content.data);
+        };
+
         console.log(item);
         graph.update(item, {
           showAfter: true
@@ -260,7 +300,53 @@ export default {
       });
       //   graph.source(data.nodes, data.edges);
       graph.read(data);
-    }
+      function getAnchors(edgesNum, gap, type) {
+        const anchors = [];
+        let y;
+        if (type === "out") y = 1;
+        else y = 0;
+
+        if (edgesNum % 2) {
+          // odd number
+          anchors.push([0.5, y]);
+          for (let i = 1; i <= (edgesNum - 1) / 2; i += 1) {
+            anchors.push([0.5 - i * gap, y]);
+            anchors.push([0.5 + i * gap, y]);
+          }
+        } else {
+          // even number
+          if (edgesNum != 0) {
+            anchors.push([0.5 - gap / 2, y]);
+            anchors.push([0.5 + gap / 2, y]);
+            for (let i = 1; i <= (edgesNum - 2) / 2; i += 1) {
+              anchors.push([0.5 - gap / 2 - i * gap, y]);
+              anchors.push([0.5 + gap / 2 + i * gap, y]);
+            }
+          }
+        }
+        return anchors;
+      }
+    },
+    addDom(){
+      
+    },
+    bindingClick() {
+      for (var i in 4) {
+        debugger;
+        const adddom = document.getElementById(i);
+        adddom.onclick = function() {
+          var obj = {};
+          obj.name = this.form.name;
+          obj.type = this.form.region;
+          this.graphList.content.data.push(obj);
+          this.AddNode = false;
+          console.log(this.graphList.content.data);
+        };
+      }
+    },
+    //添加节点
+    AddNewNode() {},
+    
   }
 };
 </script>

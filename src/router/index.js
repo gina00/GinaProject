@@ -118,6 +118,17 @@ export const constantRouterMap = [{
             component: () =>
                 import ('@/views/question/components/g6-edit')
         }]
+    },
+    {
+        path: '/question/g6-demo',
+        component: Layout,
+        redirect: '/question/components/g6-demo',
+        hidden: true,
+        children: [{
+            path: '/question/components/g6-demo',
+            component: () =>
+                import ('@/views/question/components/g6-demo')
+        }]
     }
 
 ]
