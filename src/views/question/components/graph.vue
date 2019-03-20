@@ -144,11 +144,6 @@ export default {
       },
       formLabelWidth: "120px",
       graphList: {
-        content: {
-          data: [],
-          links: []
-        },
-        appVersion: {}
       },
       //保存点击节点后，存放该节点的数据
       clickgraphList: []
@@ -231,10 +226,9 @@ export default {
         "infographic"
       );
       this.chart.showLoading();
-      this.$axios.get("/api/graphList").then(response => {
+      this.$axios.get("/api/echartGraphList").then(response => {
         this.graphList = response.data;
         this.chart.hideLoading();
-        var graphNode = this.graphList.content.data;
         this.chart.setOption(
           (this.option = {
             title: {
@@ -254,7 +248,7 @@ export default {
             series: [
               {
                 type: "graph",
-                layout: "force",
+                layout: "",
                 legendHoverLink: true,
                 force: {
                   //力引导图基本配置
@@ -267,8 +261,8 @@ export default {
                 },
                 //设置球的大小
                 draggable: true,
-                symbolSize: 100,
-                symbol: "rect", //标记图形 'circle'(圆形), 'rect'（矩形）, 'roundRect'（圆角矩形）, 'triangle'（三角形）, 'diamond'（菱形）, 'pin'（大头针）, 'arrow'（箭头）
+                symbolSize: 70,
+                symbol: "circle", //标记图形 'circle'(圆形), 'rect'（矩形）, 'roundRect'（圆角矩形）, 'triangle'（三角形）, 'diamond'（菱形）, 'pin'（大头针）, 'arrow'（箭头）
                 draggable: true,
                 label: {
                   normal: {
@@ -308,9 +302,9 @@ export default {
                     curveness: 0
                   }
                 },
-                data: this.dataNewArr(this.graphList.content.data),
+                data: this.graphList.node,
                 // links: [],
-                links: this.graphList.content.links
+                links: this.graphList.link
               }
             ]
           })

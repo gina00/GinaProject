@@ -464,7 +464,6 @@ export default {
 }
 
 .flowchart-demo .window {
-  border: 1px solid #346789;
   box-shadow: 2px 2px 19px #aaa;
   -o-box-shadow: 2px 2px 19px #aaa;
   -webkit-box-shadow: 2px 2px 19px #aaa;
@@ -481,10 +480,8 @@ export default {
   text-align: center;
   z-index: 20;
   position: absolute;
-  background-color: #eeeeef;
   color: black;
   font-family: helvetica, sans-serif;
-  padding: 0.5em;
   font-size: 0.9em;
   -webkit-transition: -webkit-box-shadow 0.15s ease-in;
   -moz-transition: -moz-box-shadow 0.15s ease-in;
@@ -557,7 +554,7 @@ export default {
 }
 
 .window.jtk-connected {
-  border: 1px solid green;
+  border: none;
 }
 
 .jtk-drag {
@@ -590,6 +587,7 @@ path,
   position: relative;
   font-weight: bold;
   color: #0af;
+  text-align: left;
 }
 .node .titleBox .icon {
   position: absolute;

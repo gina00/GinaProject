@@ -2,34 +2,36 @@
   <div>
     <div id="mountNode"></div>
     <el-dialog class="detailBox" title="节点详情" :visible.sync="showNodeDetail">
-      <template v-for="(item,index) in clickgraphList">
-        <el-row :key="index">
-          <el-col :span="4" class="title">节点名称</el-col>
-          <el-col :span="20" class="val">{{item.name}}</el-col>
-        </el-row>
-        <el-row :key="index">
-          <el-col :span="4" class="title">任务集群ID:</el-col>
-          <el-col :span="20" class="val">{{item.jobFlowId}}</el-col>
-        </el-row>
-        <el-row :key="index">
-          <el-col :span="4" class="title">版本</el-col>
-          <el-col :span="20" class="val">{{item.version}}</el-col>
-        </el-row>
-        <el-row :key="index">
-          <el-col :span="4" class="title">集群ID</el-col>
-          <el-col :span="20" class="val">{{item.jobId}}</el-col>
-        </el-row>
-        <el-row :key="index">
-          <el-col :span="4" class="title">创建日期</el-col>
-          <el-col :span="20" class="val">{{item.createDate}}</el-col>
-        </el-row>
-        <el-row :key="index">
-          <el-col :span="4" class="title">改变日期</el-col>
-          <el-col :span="20" class="val">{{item.changeDate}}</el-col>
-        </el-row>
+      <template v-for="item in clickgraphList">
+        <div :key="item.id">
+          <el-row>
+            <el-col :span="4" class="title">节点名称</el-col>
+            <el-col :span="20" class="val">{{item.name}}</el-col>
+          </el-row>
+          <el-row>
+            <el-col :span="4" class="title">任务集群ID:</el-col>
+            <el-col :span="20" class="val">{{item.jobFlowId}}</el-col>
+          </el-row>
+          <el-row>
+            <el-col :span="4" class="title">版本</el-col>
+            <el-col :span="20" class="val">{{item.version}}</el-col>
+          </el-row>
+          <el-row>
+            <el-col :span="4" class="title">集群ID</el-col>
+            <el-col :span="20" class="val">{{item.jobId}}</el-col>
+          </el-row>
+          <el-row>
+            <el-col :span="4" class="title">创建日期</el-col>
+            <el-col :span="20" class="val">{{item.createDate}}</el-col>
+          </el-row>
+          <el-row>
+            <el-col :span="4" class="title">改变日期</el-col>
+            <el-col :span="20" class="val">{{item.changeDate}}</el-col>
+          </el-row>
+        </div>
       </template>
     </el-dialog>
-    <el-dialog title="新增节点" :visible.sync="AddNode">
+    <el-dialog title="新增节点" :visible.sync="addNode">
       <el-form :model="form">
         <el-form-item label="节点名称" :label-width="formLabelWidth">
           <el-input v-model="form.name" autocomplete="off"></el-input>
@@ -42,9 +44,33 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="AddNode = false">取 消</el-button>
-        <el-button type="primary" @click="AddNewNode">确 定</el-button>
+        <el-button @click="addNode = false">取 消</el-button>
+        <el-button type="primary" @click="addNode = false">确 定</el-button>
       </div>
+    </el-dialog>
+    <el-dialog title="编辑节点" :visible.sync="editNode">
+      <el-form :model="form">
+        <el-form-item label="节点名称" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="节点类型" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="请选择活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="editNode = false">取 消</el-button>
+        <el-button type="primary" @click="editNode = false">确 定</el-button>
+      </div>
+    </el-dialog>
+    <el-dialog title="删除节点" :visible.sync="delNode">
+      <span>是否要删除该节点?</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="delNode = false">取 消</el-button>
+        <el-button type="primary" @click="delNode = false">确 定</el-button>
+      </span>
     </el-dialog>
   </div>
 </template>
@@ -58,8 +84,8 @@ export default {
     return {
       showNodeDetail: false,
       editNode: false,
-      AddNode: false,
-      DelNode: false,
+      addNode: false,
+      delNode: false,
       form: {
         name: "",
         region: "",
@@ -73,65 +99,8 @@ export default {
       formLabelWidth: "120px",
       graphList: {
         content: {
-          data: [
-            {
-              id: "1",
-              name: "root-flow",
-              jobFlowId: 100000016,
-              version: 1,
-              createDate: "2019-03-12 16:05:16",
-              changeDate: "2019-03-12 16:05:16",
-              jobId: 100000016
-            },
-            {
-              id: "2",
-              name: "node-flow2",
-              jobFlowId: 100000016,
-              version: 1,
-              createDate: "2019-03-12 16:05:16",
-              changeDate: "2019-03-12 16:05:16",
-              jobId: 100000017
-            },
-            {
-              id: "3",
-              name: "node-flow3",
-              jobFlowId: 100000016,
-              version: 1,
-              createDate: "2019-03-12 16:05:16",
-              changeDate: "2019-03-12 16:05:16",
-              jobId: 100000018
-            },
-            {
-              id: "4",
-              name: "node-flow4",
-              jobFlowId: 100000016,
-              version: 1,
-              createDate: "2019-03-12 16:05:16",
-              changeDate: "2019-03-12 16:05:16",
-              jobId: 100000019
-            }
-          ],
-          links: [
-            {
-              source: "1",
-              target: "2"
-            },
-            {
-              source: "1",
-              target: "3"
-            },
-            {
-              source: "2",
-              target: "4"
-            },
-            {
-              source: "3",
-              target: "4"
-            }
-          ]
-        },
-        appVersion: {
-          timestamp: "2019-03-12 16:16:36"
+          data: [],
+          links: []
         }
       },
       //保存点击节点后，存放该节点的数据
@@ -140,13 +109,12 @@ export default {
   },
   mounted() {
     this.getData();
-    this.create();
-    this.bindingClick();
   },
   methods: {
     getData() {
       this.$axios.get("/api/graphList").then(response => {
         this.graphList = response.data;
+        this.create();
       });
     },
     //创建关系图
@@ -158,16 +126,15 @@ export default {
       //自定义线
       G6.registerEdge("VHV", {
         getPath(item) {
-          debugger;
           const points = item.getPoints();
           const start = points[0];
-          const end = points[points.length - 1];
+          const end = points[points.length - 1 ];
           const vgap = end.y - start.y;
           const ygap = (vgap / 4) * 3;
           return [
-            ["M", start.x, start.y],
-            ["L", start.x, start.y + 45],
-            ["L", end.x, start.y + 78],
+            ["M", start.x, start.y],//moveto
+            ["L", start.x, start.y + 25],
+            ["L", end.x, start.y +25],
             ["L", end.x, end.y]
           ];
         }
@@ -178,22 +145,33 @@ export default {
         draw(item) {
           const group = item.getGraphicGroup();
           const width = 170;
-          const height = 100;
+          const height = 75;
+          const buttonWidth = 14;
+          const buttonHeight = 14;
+          let button = "";
           const dataModel = item.getModel();
           const html = G6.Util.createDOM(`
           <div class='node'>
             <div class='titleBox'>
                 <div class='nodeID' id='${dataModel.id}'>${dataModel.name}</div>
-                <i class="fa fa-spinner icon" aria-hidden="true"></i>
+                <i class="fa fa-spinner icon" aria-hidden="true" id='statusIcon${
+                  dataModel.id
+                }'></i>
             </div>
             <div class='editBox'>
                 <div class='editIcon'>
-                    <i class="fa fa-pencil-square-o icon" aria-hidden="true">Edit</i>
+                    <i class="fa fa-pencil-square-o icon" aria-hidden="true" id='editIcon${
+                      dataModel.id
+                    }'></i>
                 </div>
                 
                 <div class='operatorIcon'>
-                    <i class="fa fa-plus icon" aria-hidden="true"></i>
-                    <i class="fa fa-trash icon" aria-hidden="true"></i>
+                    <i class="fa fa-plus icon" aria-hidden="true" id='addIcon${
+                      dataModel.id
+                    }'></i>
+                    <i class="fa fa-minus icon" aria-hidden="true" id='deleteIcon${
+                      dataModel.id
+                    }'></i>
                 </div>
             </div>
           </div>
@@ -207,36 +185,10 @@ export default {
               html
             }
           });
+          
           return keyShape;
         },
-        anchor(node) {
-          // const hierarchy = node.getHierarchy();
-          const inEdges = node.getInEdges();
-          const outEdges = node.getOutEdges();
-          const inEdgesNum = inEdges.length;
-          const outEdgesNum = outEdges.length;
-          const inAnchorArea = 1 - 1 / (inEdgesNum + 1);
-          const outAnchorArea = 1 - 1 / (outEdgesNum + 1);
-          const inGap = inAnchorArea / inEdgesNum;
-          const outGap = outAnchorArea / outEdgesNum;
-          const inAnchors = getAnchors(inEdgesNum, inGap, "in");
-          const outAnchors = getAnchors(outEdgesNum, outGap, "out");
-          const anchor = inAnchors.concat(outAnchors);
-          return anchor;
-        }
-      });
-      G6.registerNode("rect", {
-        getPath: function getPath(item) {
-          var width = 100; // 一半宽
-          var height = 40; // 一半高
-          return G6.Util.getRectPath(
-            -width / 2,
-            -height / 2,
-            width,
-            height,
-            10
-          );
-        }
+        anchor: [[0.5, 0],[0.5, 1]]
       });
       const dagre = new G6.Layouts.Dagre();
       //画布定义
@@ -247,8 +199,7 @@ export default {
         width: 1200,
         height: 1200,
         fitView: "tc",
-        plugins: [plugin],
-        layout: new G6.Layouts["Dagre"](),
+        layout: dagre,
         defaultIntersectBox: "jobNodeCard"
       });
       //节点样式，采用什么节点，此处采用html自定义节点
@@ -257,96 +208,68 @@ export default {
       });
       //连接线的样式
       graph.edge({
-        shape: "",
+        shape: "VHV",
         style: {
           endArrow: true,
           lineWidth: 3,
           stroke: "#0af"
         }
-      });
+      }) ;
       //节点点击事件
-
       graph.on("node:click", ev => {
-        const item = ev.item.getModel();
+        const { domEvent, item } = ev;
+        const { target } = domEvent;
+        const itemName = item.getModel();
         //查看节点详情
-        document.getElementById(item.id).onclick = function() {
-          alert("ok");
-        };
-        if (this.showNodeDetail == false) {
-          //过滤点击节点的数据
-          this.clickgraphList = this.graphList.content.data.filter(
-            i => i.name == item.name
-          );
-          this.showNodeDetail = true;
-        } else {
-          this.showNodeDetail = false;
+        if (target.id == item.id) {
+          if (this.showNodeDetail == false) {
+            //过滤点击节点的数据
+            this.clickgraphList = this.graphList.content.data.filter(
+              i => i.name == itemName.name
+            );
+            this.showNodeDetail = true;
+          } else {
+            this.showNodeDetail = false;
+          }
+        }
+        //节点状态
+        if (target.id == `statusIcon${item.id}`) {
+          alert("状态icon被点中了");
+        }
+        //编辑节点
+        if (target.id == `editIcon${item.id}`) {
+          if (this.editNode == false) {
+            this.editNode = true;
+          }
+        }
+        //添加节点
+        if (target.id == `addIcon${item.id}`) {
+          if (this.addNode == false) {
+            this.addNode = true;
+            var obj = {};
+            debugger;
+            obj.name = this.form.name;
+            obj.type = this.form.region;
+            this.graphList.content.data.push(obj);
+          } else {
+            this.addNode = false;
+          }
+          console.log(this.graphList.content.data);
+        }
+        //删除节点
+        if (target.id == `deleteIcon${item.id}`) {
+          if (this.delNode == false) {
+            this.delNode = true;
+          }
         }
 
-        debugger;
-        const adddom = document.getElementById(item.id);
-        document.getElementById(item.id).onclick = function() {
-          var obj = {};
-          obj.name = this.form.name;
-          obj.type = this.form.region;
-          this.graphList.content.data.push(obj);
-          this.AddNode = false;
-          console.log(this.graphList.content.data);
-        };
-
-        console.log(item);
         graph.update(item, {
           showAfter: true
         });
       });
       //   graph.source(data.nodes, data.edges);
       graph.read(data);
-      function getAnchors(edgesNum, gap, type) {
-        const anchors = [];
-        let y;
-        if (type === "out") y = 1;
-        else y = 0;
-
-        if (edgesNum % 2) {
-          // odd number
-          anchors.push([0.5, y]);
-          for (let i = 1; i <= (edgesNum - 1) / 2; i += 1) {
-            anchors.push([0.5 - i * gap, y]);
-            anchors.push([0.5 + i * gap, y]);
-          }
-        } else {
-          // even number
-          if (edgesNum != 0) {
-            anchors.push([0.5 - gap / 2, y]);
-            anchors.push([0.5 + gap / 2, y]);
-            for (let i = 1; i <= (edgesNum - 2) / 2; i += 1) {
-              anchors.push([0.5 - gap / 2 - i * gap, y]);
-              anchors.push([0.5 + gap / 2 + i * gap, y]);
-            }
-          }
-        }
-        return anchors;
-      }
-    },
-    addDom(){
-      
-    },
-    bindingClick() {
-      for (var i in 4) {
-        debugger;
-        const adddom = document.getElementById(i);
-        adddom.onclick = function() {
-          var obj = {};
-          obj.name = this.form.name;
-          obj.type = this.form.region;
-          this.graphList.content.data.push(obj);
-          this.AddNode = false;
-          console.log(this.graphList.content.data);
-        };
-      }
-    },
-    //添加节点
-    AddNewNode() {},
-    
+    }
   }
 };
 </script>

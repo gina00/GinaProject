@@ -88,6 +88,18 @@ export default {
           {
             source: "hive 计算",
             target: "report"
+          },
+          {
+            source: "入 es 集群",
+            target: "report"
+          },
+          {
+            source: "入 hdfs 2",
+            target: "report"
+          },
+          {
+            source: "入 hdfs 2",
+            target: "入 es 集群"
           }
         ]
       };
