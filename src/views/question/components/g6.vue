@@ -2,31 +2,31 @@
   <div>
     <div id="mountNode"></div>
     <el-dialog class="detailBox" title="节点详情" :visible.sync="showNodeDetail">
-      <template v-for="item in clickgraphList">
-        <div :key="item.id">
+      <template>
+        <div>
           <el-row>
             <el-col :span="4" class="title">节点名称</el-col>
-            <el-col :span="20" class="val">{{item.name}}</el-col>
+            <el-col :span="20" class="val">{{clickgraphList.name}}</el-col>
           </el-row>
           <el-row>
             <el-col :span="4" class="title">任务集群ID:</el-col>
-            <el-col :span="20" class="val">{{item.jobFlowId}}</el-col>
+            <el-col :span="20" class="val">{{clickgraphList.jobFlowId}}</el-col>
           </el-row>
           <el-row>
             <el-col :span="4" class="title">版本</el-col>
-            <el-col :span="20" class="val">{{item.version}}</el-col>
+            <el-col :span="20" class="val">{{clickgraphList.version}}</el-col>
           </el-row>
           <el-row>
             <el-col :span="4" class="title">集群ID</el-col>
-            <el-col :span="20" class="val">{{item.jobId}}</el-col>
+            <el-col :span="20" class="val">{{clickgraphList.jobId}}</el-col>
           </el-row>
           <el-row>
             <el-col :span="4" class="title">创建日期</el-col>
-            <el-col :span="20" class="val">{{item.createDate}}</el-col>
+            <el-col :span="20" class="val">{{clickgraphList.createDate}}</el-col>
           </el-row>
           <el-row>
             <el-col :span="4" class="title">改变日期</el-col>
-            <el-col :span="20" class="val">{{item.changeDate}}</el-col>
+            <el-col :span="20" class="val">{{clickgraphList.changeDate}}</el-col>
           </el-row>
         </div>
       </template>
@@ -104,7 +104,7 @@ export default {
         }
       },
       //保存点击节点后，存放该节点的数据
-      clickgraphList: []
+      clickgraphList: {}
     };
   },
   mounted() {
@@ -128,13 +128,13 @@ export default {
         getPath(item) {
           const points = item.getPoints();
           const start = points[0];
-          const end = points[points.length - 1 ];
+          const end = points[points.length - 1];
           const vgap = end.y - start.y;
           const ygap = (vgap / 4) * 3;
           return [
-            ["M", start.x, start.y],//moveto
+            ["M", start.x, start.y], //moveto
             ["L", start.x, start.y + 25],
-            ["L", end.x, start.y +25],
+            ["L", end.x, start.y + 25],
             ["L", end.x, end.y]
           ];
         }
@@ -185,10 +185,10 @@ export default {
               html
             }
           });
-          
+
           return keyShape;
         },
-        anchor: [[0.5, 0],[0.5, 1]]
+        anchor: [[0.5, 0], [0.5, 1]]
       });
       const dagre = new G6.Layouts.Dagre();
       //画布定义
@@ -214,7 +214,7 @@ export default {
           lineWidth: 3,
           stroke: "#0af"
         }
-      }) ;
+      });
       //节点点击事件
       graph.on("node:click", ev => {
         const { domEvent, item } = ev;
@@ -223,10 +223,8 @@ export default {
         //查看节点详情
         if (target.id == item.id) {
           if (this.showNodeDetail == false) {
-            //过滤点击节点的数据
-            this.clickgraphList = this.graphList.content.data.filter(
-              i => i.name == itemName.name
-            );
+            //点击节点的数据
+            this.clickgraphList = item.model;
             this.showNodeDetail = true;
           } else {
             this.showNodeDetail = false;
@@ -284,17 +282,17 @@ export default {
   background-color: #e6f1fc;
   vertical-align: middle;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 .node .titleBox {
   padding: 0;
-  position: relative;
   font-weight: bold;
   color: #0af;
+  display: flex;
+  justify-content: space-between;
 }
 .node .titleBox .icon {
-  position: absolute;
-  top: 0;
-  right: 0;
   font-size: 12px;
 }
 .node .icon {
