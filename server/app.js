@@ -13,6 +13,7 @@ var bannerListData = require('./data/bannerList.json');
 var treeListData = require('./data/flare.json');
 var echartgraphListData = require('./data/graph-old.json');
 var graphListData = require('./data/graph.json');
+var questionListData = require('./data/questionList.json');
 // 被这个路由拦截掉了
 // appRouter.route('/:apiName')
 //     .get(function(req, res) {
@@ -53,6 +54,9 @@ app.get('/api/echartGraphList', function(req, res) {
 })
 app.get('/api/graphList', function(req, res) {
     res.json(graphListData)
+})
+app.get('/api/questionLis', function(req, res) {
+    res.json(questionListData)
 })
 
 app.post('/api/testUser', urlencodedParser, function(req, res) {

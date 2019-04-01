@@ -162,7 +162,6 @@ export default {
 
 <style scoped>
 .tree-container {
-  border: 1px solid grey;
   position: relative;
 }
 .menuBox {

@@ -13,8 +13,8 @@ import 'font-awesome/css/font-awesome.css'
 import ECharts from 'echarts'
 import jsPlumb from 'jsplumb'
 import axios from "axios"
+import store from '@/store/index'
 import VueResource from 'vue-resource'
-
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
@@ -41,6 +41,7 @@ axios.interceptors.request.use(
 new Vue({
     el: '#app',
     router,
+    store,
     components: {
         App
     },

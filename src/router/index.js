@@ -30,6 +30,37 @@ export const constantRouterMap = [{
                 import ('@/views/project/index')
         }]
     },
+    {
+        path: '/project/detail',
+        component: Layout,
+        hidden: true,
+        children: [{
+            path: 'common',
+            component: () =>
+                import ('@/views/project/common'),
+            children: [{
+                    path: '/project/customer',
+                    component: () =>
+                        import ('@/views/project/components/curstumer')
+                },
+                {
+                    path: '/project/ordercenter',
+                    component: () =>
+                        import ('@/views/project/components/ordercenter')
+                },
+                {
+                    path: '/project/newOrderCenter',
+                    component: () =>
+                        import ('@/views/project/components/newOrderCenter')
+                },
+                {
+                    path: '/project/monitor',
+                    component: () =>
+                        import ('@/views/project/components/monitor')
+                },
+            ]
+        }]
+    },
 
     {
         path: '/question',
@@ -40,6 +71,63 @@ export const constantRouterMap = [{
             path: 'index',
             component: () =>
                 import ('@/views/question/index')
+        }]
+    },
+
+    {
+        path: '/question/detail',
+        component: Layout,
+        hidden: true,
+        children: [{
+            path: 'common',
+            component: () =>
+                import ('@/views/question/common'),
+            children: [{
+                    path: '/question/tree',
+                    component: () =>
+                        import ('@/views/question/components/echart-tree')
+                },
+                {
+                    path: '/question/graph',
+                    component: () =>
+                        import ('@/views/question/components/graph')
+                },
+                {
+                    path: '/question/jtopo',
+                    component: () =>
+                        import ('@/views/question/components/jtopo')
+                },
+                {
+                    path: '/question/jsplumb',
+                    component: () =>
+                        import ('@/views/question/components/jsplumb')
+                },
+                {
+                    path: '/question/g6',
+                    component: () =>
+                        import ('@/views/question/components/g6')
+                },
+                {
+                    path: '/question/g6-edit',
+                    component: () =>
+                        import ('@/views/question/components/g6-edit')
+                },
+                {
+                    path: '/question/g6-demo',
+                    component: () =>
+                        import ('@/views/question/components/g6-demo')
+                },
+                {
+                    path: '/question/middle',
+                    component: () =>
+                        import ('@/views/question/components/middle')
+                },
+                {
+                    path: '/question/knownMiddle',
+                    component: () =>
+                        import ('@/views/question/components/knownMiddle')
+                },
+            ]
         }]
     },
     {
@@ -53,83 +141,6 @@ export const constantRouterMap = [{
                 import ('@/views/monitor/index')
         }]
     },
-    {
-        path: '/question/tree',
-        component: Layout,
-        redirect: '/question/components/echart-tree',
-        hidden: true,
-        children: [{
-            path: '/question/components/echart-tree',
-            component: () =>
-                import ('@/views/question/components/echart-tree')
-        }]
-    },
-    {
-        path: '/question/graph',
-        component: Layout,
-        redirect: '/question/components/graph',
-        hidden: true,
-        children: [{
-            path: '/question/components/graph',
-            component: () =>
-                import ('@/views/question/components/graph')
-        }]
-    },
-    {
-        path: '/question/jtopo',
-        component: Layout,
-        redirect: '/question/components/jtopo',
-        hidden: true,
-        children: [{
-            path: '/question/components/jtopo',
-            component: () =>
-                import ('@/views/question/components/jtopo')
-        }]
-    },
-    {
-        path: '/question/jsplumb',
-        component: Layout,
-        redirect: '/question/components/jsplumb',
-        hidden: true,
-        children: [{
-            path: '/question/components/jsplumb',
-            component: () =>
-                import ('@/views/question/components/jsplumb')
-        }]
-    },
-    {
-        path: '/question/g6',
-        component: Layout,
-        redirect: '/question/components/g6',
-        hidden: true,
-        children: [{
-            path: '/question/components/g6',
-            component: () =>
-                import ('@/views/question/components/g6')
-        }]
-    },
-    {
-        path: '/question/g6-edit',
-        component: Layout,
-        redirect: '/question/components/g6-edit',
-        hidden: true,
-        children: [{
-            path: '/question/components/g6-edit',
-            component: () =>
-                import ('@/views/question/components/g6-edit')
-        }]
-    },
-    {
-        path: '/question/g6-demo',
-        component: Layout,
-        redirect: '/question/components/g6-demo',
-        hidden: true,
-        children: [{
-            path: '/question/components/g6-demo',
-            component: () =>
-                import ('@/views/question/components/g6-demo')
-        }]
-    }
 
 ]
 
