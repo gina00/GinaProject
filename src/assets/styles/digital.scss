@@ -1,0 +1,586 @@
+img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    -ms-interpolation-mode: bicubic;
+}
+
+
+/* 布局 */
+
+.container {
+    text-align: left;
+}
+
+.middleBox {
+    display: table;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.main {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.topBox,
+.bottomBox {
+    float: left;
+}
+
+.bottomBox {
+    width: 100%;
+}
+
+
+/* 扫码页面 */
+
+.scanMain {
+    display: table;
+    height: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.scanBox {
+    margin: auto;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.scanBox .imgBox {
+    height: 300px;
+    margin: 0px auto 40px;
+    text-align: center;
+    padding-left: 30px;
+}
+
+.scanBox .btnBox {
+    background: #009bee;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+    margin: 40px auto;
+}
+
+.scanBox.noDataBox .imgBox {
+    padding-left: 0px;
+}
+
+
+/* 特征页面 */
+
+.driverX {
+    width: 100%;
+    height: 2px;
+    padding: 20px 0px;
+    position: relative;
+    float: left;
+    background: url("../images/digitalImages/line-x.png") center repeat-x;
+}
+
+.driverX i {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #057cc0;
+    display: inline-block;
+    border-radius: 50px;
+}
+
+.driverlcircle {
+    top: 10px;
+    left: 0;
+}
+
+.driverRcircle {
+    top: 10px;
+    right: 0;
+}
+
+.bottomBox .commonBox {
+    width: 34.33%;
+}
+
+.bottomBox .commonBox:last-child {
+    margin-right: 0px;
+}
+
+
+/* 用户画像样式 */
+
+.topBox {
+    width: 100%;
+}
+
+.userBox {
+    height: auto;
+    float: left;
+    text-align: center;
+}
+
+.userBox .userTitle {
+    text-align: center;
+    margin: 20px 0 30px;
+}
+
+.userImg {
+    display: inline-block;
+    text-align: center;
+}
+
+.topBox .driver {
+    width: 2%;
+    height: auto;
+    margin-left: 1%;
+    float: left;
+}
+
+.userFeature {
+    margin-top: 3px;
+}
+
+.topBox .commonBox {
+    width: 50%;
+    position: relative;
+}
+
+
+/* 购物特征 */
+
+.avg {
+    float: left;
+    margin-left: 1%;
+    width: 73%;
+}
+
+.commonBox {
+    float: left;
+}
+
+.commonBox .userTitle {
+    width: auto;
+    margin: 20px 0;
+}
+
+.codeImg {
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+
+.shoppingBox {
+    width: 100%;
+}
+
+.shoppingBox .left,
+.shoppingBox .right {
+    width: 46%;
+    display: inline-block;
+}
+
+.shoppingBox img {
+    margin-top: 40px;
+    height: 90px;
+}
+
+.alipayBox {
+    padding: 15px 0px;
+    margin-top: 40px;
+    position: relative;
+    float: left;
+    animation: showFeature 2s ease;
+}
+
+.alipayBox span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.alipayBox img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+
+/* 娱乐特征 */
+
+.playFeatureImgBox {
+    width: 100%;
+}
+
+.topBox .playFeatureImgBox img {
+    width: 80px;
+    padding: 2% 7%;
+}
+
+.playBox .bottom {
+    width: 100%;
+}
+
+.bottom .btl,
+.bottom .btr {
+    width: 50%;
+}
+
+.playBox .bottom .btl {
+    float: left;
+}
+
+.playBox .bottom .btr {
+    float: left;
+    margin-right: 0px;
+}
+
+.bottom .btl .playFeatureImgBox img {
+    width: 70px;
+}
+
+.bottom .btr .playFeatureImgBox img {
+    width: 150px;
+    padding: 10px 0;
+}
+
+
+/* 餐饮特征 */
+
+.bottomBox .commonBox.foodBox {
+    width: 28%;
+}
+
+.bottomBox .userTitle span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 3%;
+}
+
+.bottomBox .userTitle img {
+    vertical-align: middle;
+}
+
+.bottomBox .eatBox>img {
+    margin: 0 12%;
+}
+
+.bottomBox .eatBox .foodMessageBox img {
+    vertical-align: middle;
+}
+
+.bottomBox .eatBox .foodMessageBox span {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.bottomBox .foodMessageBox {
+    margin: 15px 0;
+    position: relative;
+    animation: showFeature 2s ease;
+}
+
+.bottomBox .phoneWays {
+    display: inline-block;
+    margin-left: 120px;
+}
+
+.bottomBox .phoneWays img {
+    width: 50px;
+}
+
+.bottomBox .playFeatureImgBox img {
+    width: 80px;
+}
+
+.bottomBox .playFeatureImgBox div {
+    padding: 4% 6%;
+}
+
+
+/* 出行特征 */
+
+.bottomBox .playFeatureImgBox>div {
+    display: inline-block;
+}
+
+.bottomBox .playFeatureImgBox>div p {
+    text-align: center;
+    padding: 0;
+}
+
+
+/* 娱乐特征文字颜色 */
+
+.orange {
+    color: #fe8500;
+}
+
+
+/* 美食达人文字颜色 */
+
+.green {
+    color: #95d13b;
+}
+
+
+/* 购物达人文字颜色 */
+
+.red {
+    color: #e62224;
+}
+
+
+/* 出行特征、其他特征的文字颜色 */
+
+.blue {
+    color: #019cee;
+}
+
+
+/* 所有特征的灰色 */
+
+.gray {
+    color: #868e8f;
+}
+
+
+/* 基本文字样式 */
+
+.commonText {
+    padding: 15px 0 30px;
+    position: relative;
+    animation: showFeature 2s ease;
+}
+
+.bigText {
+    font-size: 26px;
+    padding: 5px;
+    position: relative;
+    animation: showFeature 2s ease;
+}
+
+.baseText {
+    color: #047bbf;
+}
+
+.noFindText {
+    font-size: 28px;
+}
+
+
+/* 定义文字动画 */
+
+@keyframes showFeature {
+    from {
+        left: 20px;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+
+/* Firefox */
+
+@-moz-keyframes showFeature {
+    from {
+        left: 20px;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+
+/* Safari 和 Chrome */
+
+@-webkit-keyframes showFeature {
+    from {
+        left: 20px;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes showFeature
+/* Opera */
+
+{
+    from {
+        left: 20px;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+
+/* 自适应配置 */
+
+@media screen and (min-width:980px) {
+    .userBox {
+        width: 15%;
+    }
+    .shoppingBox .left,
+    .shoppingBox .right {
+        width: 49%;
+    }
+    .avg {
+        width: auto;
+    }
+    .topBox .playFeatureImgBox img {
+        padding: 2% 3%;
+    }
+    .bottomBox .playFeatureImgBox div {
+        padding: 2% 3%;
+    }
+    .commonBox .userTitle {
+        height: 60px;
+    }
+    .avg {
+        width: 81%;
+    }
+    .userImg {
+        width: 110px;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .userBox {
+        width: 15%;
+    }
+    .shoppingBox .left,
+    .shoppingBox .right {
+        width: auto;
+    }
+    .topBox .playFeatureImgBox img {
+        padding: 1%;
+    }
+    .avg {
+        width: 81%;
+    }
+}
+
+@media screen and (min-width:1080px) {
+    .topBox .playFeatureImgBox img {
+        padding: 2% 4%;
+    }
+    .bottomBox .playFeatureImgBox div {
+        padding: 2% 4%;
+    }
+    .userImg {
+        width: 120px;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .userBox {
+        width: 19%;
+    }
+    .shoppingBox .left,
+    .shoppingBox .right {
+        width: 49%;
+    }
+    .avg {
+        width: 77%;
+    }
+    .commonBox .userTitle {
+        height: 70px;
+    }
+    .userImg {
+        width: 140px;
+    }
+}
+
+@media screen and (min-width: 1380px) {
+    /* img恢复原始尺寸 */
+    .topBox .playFeatureImgBox img {
+        padding: 2% 3%;
+        width: auto;
+    }
+    .bottom .btr .playFeatureImgBox img {
+        width: auto;
+    }
+    .bottomBox .playFeatureImgBox div {
+        padding: 2%;
+    }
+    .commonBox .userTitle {
+        height: auto;
+    }
+    .userImg {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 1480px) {
+    .topBox .playFeatureImgBox img {
+        padding: 2% 6%;
+        width: auto;
+    }
+    .bottomBox .playFeatureImgBox div {
+        padding: 2% 3%;
+    }
+}
+
+@media screen and (min-width: 1580px) {
+    .topBox .playFeatureImgBox img {
+        padding: 2% 6%;
+        width: auto;
+    }
+    .bottomBox .playFeatureImgBox div {
+        padding: 2% 4%;
+    }
+}
+
+@media screen and (min-width: 1680px) {
+    .bottomBox .playFeatureImgBox img {
+        width: 80px;
+    }
+    .bottom .btr .playFeatureImgBox img {
+        width: auto;
+    }
+    .bottomBox .playFeatureImgBox div {
+        padding: 2% 5%;
+    }
+}
+
+@media screen and (min-width: 1380px) and (max-width:3360px) {
+    .userBox {
+        width: 20%;
+    }
+    .avg {
+        width: 73%;
+    }
+    .shoppingBox img {
+        height: 90px;
+    }
+    .playFeatureImgBox img {
+        width: auto;
+    }
+    .bottom .btl .playFeatureImgBox img {
+        width: auto;
+    }
+    .bottomBox .foodMessageBox {
+        margin: 40px 0;
+    }
+    .bottomBox .playFeatureImgBox img {
+        width: auto;
+    }
+}

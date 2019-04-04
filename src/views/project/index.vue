@@ -18,7 +18,7 @@
               <p>{{item.detail}}</p>
             </div>
             <div class="bottom">
-              <div class="time">{{ currentDate }}</div>
+              <div class="time">{{ item.createDate }}</div>
               <el-button type="primary" class="button" @click="showDetail(index)">{{item.operate}}</el-button>
             </div>
           </div>
@@ -32,8 +32,7 @@
 export default {
   data() {
     return {
-      list: [],
-      currentDate: new Date()
+      list: []
     };
   },
   mounted() {
@@ -47,6 +46,9 @@ export default {
       });
     },
     showDetail(index) {
+      this.$store.commit("getProjectName",this.list[index].name);
+      this.$store.commit("getProjectDetail",this.list[index].detail);
+      this.$store.commit("getProjectDate",this.list[index].createDate);
       this.$router.push({
         path: this.list[index].link
       });

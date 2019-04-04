@@ -5,14 +5,10 @@
         <el-button icon="el-icon-back" circle></el-button>
       </router-link>
       <div class="title">
-        <div class="text">
-            传入前面标题等内容
-          <!-- <span>{{setType}} - {{setName}}</span>
-          <el-button type="success" size="mini">{{setType}}</el-button>
-          <p>{{setDetail}}</p>
+        <div class="text" >
+            <span>{{setName}}</span>
         </div>
-        <span class="date">创建时间：{{setDate}}</span> -->
-        </div>
+        <span class="date" style="margin-top:0;">创建时间：{{setDate}}</span>        
       </div>
     </div>
     <div class="content">
@@ -22,7 +18,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    setName(){
+      return this.$store.state.project.projectName
+    },
+    setDetail(){
+      return this.$store.state.project.projectDetail
+    },
+    setDate(){
+      return this.$store.state.project.projectDate
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -39,6 +47,7 @@ export default {};
       display: flex;
       justify-content: space-between;
       margin-left: 15px;
+      line-height: 40px;
       .text p {
         font-size: 14px;
         color: #666;
@@ -48,7 +57,6 @@ export default {};
     .date {
       font-size: 14px;
       color: #999;
-      margin-top: 30px;
     }
   }
   .content {

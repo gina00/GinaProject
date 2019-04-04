@@ -1,14 +1,29 @@
 <template>
-<el-scrollbar style="height:100%" wrapClass="scrollbar-wrapper">
-    <el-menu :default-active='activedMenu()' class="el-menu-vertical-demo" background-color="#2b3844"
+  <el-scrollbar style="height:100%" wrapClass="scrollbar-wrapper">
+    <el-menu
+      :default-active="activedMenu()"
+      class="el-menu-vertical-demo"
+      background-color="#2b3844"
       text-color="#fff"
-      active-text-color="#00aaff"  @open="handleOpen" @close="handleClose">
-        <div class="subMenuTitle">
-            <span class="cn">MENU</span>
-        </div>
-        <sidebar-item></sidebar-item>
+      active-text-color="#00aaff"
+      @open="handleOpen"
+      @close="handleClose"
+      :collapse="getChange"
+    >
+      <div class="subMenuTitle">
+        <el-radio-group v-model="getChange" style="margin-bottom: 20px;">
+          <el-radio-button :label="false" v-if="getChange">
+            <i class="el-icon-more" :label="false"></i>
+          </el-radio-button>
+          <el-radio-button :label="true" v-if="!getChange">
+            <i class="el-icon-menu" :label="true"></i>
+            <span class="itemText">MENU</span>
+          </el-radio-button>
+        </el-radio-group>
+      </div>
+      <sidebar-item></sidebar-item>
     </el-menu>
-</el-scrollbar>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -18,13 +33,18 @@ export default {
     "sidebar-item": SiderbarItem
   },
   data() {
-    return {
-      isCollapse: false
-    };
+    return {};
   },
   computed: {
-    computedName() {
-      return this.$store.state.subMenuManage.select;
+    getChange: {
+      //新增 get和set,解决v-model的双向绑定问题。单独定义getChange方法不能实现双向数据绑定
+      get: function() {
+        return this.$store.state.sidebar.isCollapse; //去vuex里取isCollapse状态值
+      },
+      set: function() {
+        this.$store.state.sidebar.isCollapse = !this.$store.state.sidebar
+          .isCollapse; //通过set方法，改变isCollapse值
+      }
     }
   },
   methods: {
@@ -36,18 +56,17 @@ export default {
     },
     activedMenu() {
       if (this.$route.path.indexOf("/dashboard") == 0) {
-        return "dashboard";
-      }
-      else if (this.$route.path.indexOf("/project") == 0) {
-        return "project";
+        return "1";
+      } else if (this.$route.path.indexOf("/project") == 0) {
+        return "2";
       } else if (this.$route.path.indexOf("/question") == 0) {
-        return "question/index";
-      }
-      else if(this.$route.path.indexOf("/shoppingmanage/index") == 0) {
-        return "shoppingmanage/index";
-      }
-      else if(this.$route.path.indexOf("/monitor/index") == 0) {
-        return "monitor/index";
+        return "3";
+      } else if (this.$route.path.indexOf("/monitor/index") == 0) {
+        return "4-1";
+      } else if (this.$route.path.indexOf("/digital") == 0) {
+        return "4-2";
+      } else if (this.$route.path.indexOf("/shoppingmanage/index") == 0) {
+        return "5";
       }
     }
   }
@@ -70,8 +89,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding: 20px;
-
+  .el-radio-group{
+    margin-bottom: 0 !important;
+  }
+  .itemText {
+    margin-left: 15px;
+  }
   .cn {
     font-size: 14px;
   }

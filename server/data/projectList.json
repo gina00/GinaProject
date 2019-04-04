@@ -5,7 +5,8 @@
         "imageSrc": "../../static/images/projectList/login.jpg",
         "href": "http://127.0.0.1:8860/",
         "operate": "查看详情",
-        "link": "/project/customer"
+        "link": "/project/customer",
+        "createDate": "2018-07-04"
     },
     {
         "id": 1,
@@ -14,25 +15,38 @@
         "imageSrc": "../../static/images/projectList/170535.jpg",
         "href": "http://127.0.0.1:8850/#/dashboard",
         "operate": "查看详情",
-        "link": "/project/ordercenter"
+        "link": "/project/ordercenter",
+        "createDate": "2018-09-25"
     },
     {
         "id": 2,
         "name": "中国移动客户关系系统-订单中心V1.1",
-        "detail": "基于中国移动客户关系系统-订单中心V1.0做优化，提高视觉效果，新增统计数据表，汇总概览",
+        "detail": "基于中国移动客户关系系统-订单中心V1.0做的优化版本，此版本的优势在于提高视觉效果，新增统计数据表，汇总概览，业务流程图，购物车列表",
         "imageSrc": "../../static/images/projectList/0172822.jpg",
         "href": "http://10.1.1.206:8851/#/dashboard",
         "operate": "查看详情",
-        "link": "/project/newOrderCenter"
+        "link": "/project/newOrderCenter",
+        "createDate": "2018-11-08"
 
     },
     {
         "id": 3,
         "name": "虎踞云监控界面",
-        "detail": "统计每个模块下遗留BUG数量，以及人员工作量的统计。提高工作效率，解决跨平台查看遗留问题的不便捷性",
+        "detail": "为每个应用模块下代码开发遗留的BUG、漏洞、异味、重复率、覆盖率以及每个员工工作量的统计。提高工作效率，解决跨平台查看遗留问题的不便捷性",
         "imageSrc": "../../static/images/projectList/monitor.png",
         "href": "",
         "operate": "查看详情",
-        "link": "/project/monitor"
+        "link": "/project/monitor",
+        "createDate": "2019-01-25"
+    },
+    {
+        "id": 4,
+        "name": "移动数字身份创新运营平台大屏展示",
+        "detail": "为移动用户的生活习惯来统计用户特征，通过扫码进入用户特征显示界面，提取用户的行为习惯，通过数据逻辑处理生成每个用户对应的用户特征画像",
+        "imageSrc": "../../static/images/projectList/digital2.jpg",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/digital",
+        "createDate": "2018-03-22"
     }
 ]

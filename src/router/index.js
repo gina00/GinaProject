@@ -58,6 +58,11 @@ export const constantRouterMap = [{
                     component: () =>
                         import ('@/views/project/components/monitor')
                 },
+                {
+                    path: '/project/digital',
+                    component: () =>
+                        import ('@/views/project/components/digital')
+                },
             ]
         }]
     },
@@ -139,6 +144,17 @@ export const constantRouterMap = [{
             path: 'index',
             component: () =>
                 import ('@/views/monitor/index')
+        }]
+    },
+    {
+        path: '/digital',
+        component: Layout,
+        redirect: '/digital/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/digitalSummit/index')
         }]
     },
 

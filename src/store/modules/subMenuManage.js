@@ -1,10 +1,11 @@
 const subMenuManage = {
     state: {
-        select: "1"
+        isCollapse: false
     },
     mutations: {
-        changeSubMenu(state, select) {
-            state.select = select;
+        changeSubMenu(state) {
+            state.isCollapse = !state.isCollapse;
+            console.log("点击打开，isCollapse是从store仓库里拿到的");
         }
     }
 };

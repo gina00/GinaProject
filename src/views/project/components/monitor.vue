@@ -26,34 +26,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    -ms-interpolation-mode: bicubic;
-  }
-  .link {
-    color: #0af;
-    padding-right: 10px;
-  }
-  .step{
-      
-      li{
-          padding: 10px 0;
-          list-style: lower-alpha;
-      }
-  }
-  .content {
-  p {
-    line-height: 1.6rem;
-    padding: 15px 0;
-    font-size: 14px;
-    margin: 0px 0;
-    text-indent: 2em;
-  }
-  
-}
-}
+
 </style>

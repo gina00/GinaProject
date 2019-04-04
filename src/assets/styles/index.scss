@@ -3,6 +3,7 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './common.scss';
+@import './digital.scss';
 @import './variables.scss';
 @import './scrollbar.scss';
 body {
@@ -24,6 +25,8 @@ p {
 html {
     height: 100%;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 #app {

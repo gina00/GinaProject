@@ -1,13 +1,13 @@
 .side-content {
     position: fixed;
-    width: 230px;
     height: 100%;
     transition: width 0.28s;
     // font-size: 0;
     top: 80px;
     left: 0;
-    overflow: hidden;
+    overflow: auto;
     text-align: left;
+    padding-bottom: 80px;
     box-shadow: 1px 0px 1px #eaeaea;
     .el-scrollbar__view {
         height: 100%;
@@ -21,6 +21,21 @@
     .el-submenu {
         .el-menu-item {
             min-width: 179px !important;
+        }
+    }
+    .el-radio-group {
+        .el-radio-button {
+            width: 100%;
+            .el-radio-button__inner {
+                border: none;
+                background: #23313f !important;
+                width: 100%;
+                color: #eaeaea;
+                text-align: left;
+            }
+        }
+        .el-radio-button:first-child .el-radio-button__inner {
+            border-left: none !important;
         }
     }
 }
