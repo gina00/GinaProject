@@ -16,15 +16,14 @@
         </div>
       </div>
     </div>
-    <userFeature v-if="userFeatureShow" :userData="this.userFeatureShow" :scanData="this.scanShow"></userFeature>
-    <noData v-if="nodataShow"></noData>
+    <userFeature v-if="userFeatureShow" :user-data="userFeatureShow" :scan-data="scanShow"></userFeature>
+    <noData v-if="nodataShow" :no-data="nodataShow" :scan-data="scanShow"></noData>
   </section>
 </template>
 
 <script>
 import userFeature from "./userFeature";
 import noData from "./404";
-import { setInterval, clearInterval } from "timers";
 export default {
   components: {
     userFeature,
@@ -50,8 +49,13 @@ export default {
       
     },
     openNoData() {
-      this.nodataShow = true;
-      this.scanShow = !this.nodataShow;
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+        this.nodataShow = true;
+        this.scanShow = !this.nodataShow;
+      }, 2000);
+      
     },
   }
 };

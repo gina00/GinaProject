@@ -256,7 +256,6 @@ export default {
                     this.list[i].newData=Math.round((newDebtVal / 60) / 8);
                 }
                 newNumVal=this.list[i].newNum;
-                debugger;
                 this.list[i].newNum=Math.floor(newNumVal);
                 //=this.list[i].newData.toFixed(2);
                 console.log(this.list[i].newData);

@@ -7,8 +7,9 @@
       <div class="side-content">
         <side-bar></side-bar>
       </div>
-      <div class="main-content" :class="{ 'side-bar': !getChange, 'side-bar-min': getChange, 'main-max': getChange }">
+      <div class="main-content"  :class="{ 'side-bar': !getChange, 'side-bar-min': getChange, 'main-max': getChange }">
         <app-main></app-main>
+        <go-back ></go-back>
       </div>
     </div>
   </div>
@@ -19,11 +20,17 @@
 import SideBar from "./components/Sidebar/index";
 import AppMain from "./components/AppMain";
 import HeaderItem from "./components/Header/index";
+import goBack from "@/components/goback/goBack";
 export default {
   components: {
     "header-item": HeaderItem,
     "side-bar": SideBar,
-    "app-main": AppMain
+    "app-main": AppMain,
+    "go-back": goBack,
+  },
+  data() {
+    return {
+    }
   },
   computed: {
     getChange() {

@@ -157,41 +157,42 @@
 </template>
 
 <script>
+//import { setInterval, clearInterval } from "timers";
 export default {
-  props: {
-    userData,
-    scanData,
-  },
+  // props: 
+  //   ["userData",
+  //   "scanData",
+  //   ],
   data() {
     return {
-      count:""
+      count:0
     }
   },
-  mounted() {
-    if (this.userData) {
-      this.go();
-    }
-  },
-  methods: {
-    go() {
-      debugger;
-      const TIME_COUNT = 3;
-      if (!this.timer) {
-        this.count = TIME_COUNT;
-        this.scanData = false;
-        this.timer = setInterval(function() {
-          if (this.count > 0 && this.count <= TIME_COUNT) {
-            this.count--;
-          } else {
-            this.scanData = true;
-            clearInterval(this.timer);
-            this.timer = null;
-            this.userData = !this.scanData;
-          }
-        }, 1000);
-      }
-    }
-  }
+  // mounted() {
+  //   if (this.userData) {
+  //     this.go();
+  //   }
+  // },
+  // methods: {
+  //   go() {
+  //     debugger
+  //     const TIME_COUNT = 3;
+  //     if (!this.timer) {
+  //       this.count = TIME_COUNT;
+  //       this.scanData = false;
+  //       this.timer = setInterval(function() {
+  //         if (this.count > 0 && this.count <= TIME_COUNT) {
+  //           this.count--;
+  //         } else {
+  //           this.scanData = true;
+  //           clearInterval(this.timer);
+  //           this.timer = null;
+  //           this.userData = !this.scanData;
+  //         }
+  //       }, 1000);
+  //     }
+  //   }
+  // }
 };
 </script>
 

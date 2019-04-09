@@ -70,16 +70,6 @@ export default {
   border-bottom: 1px solid #e9e9e9;
   overflow: hidden;
   cursor: pointer;
-  //   .mask{
-  //       display: none;
-  //   }
-  //   &:hover{
-  //        .mask{
-  //       display: block;
-  //       background: #000;
-  //       opacity: 0.3;
-  //   }
-
   .image {
     width: 100%;
     display: block;
