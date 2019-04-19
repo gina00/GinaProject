@@ -16,8 +16,12 @@
                 <p class="bigText green">美食达人</p>
               </div>
             </div>
-            <div class="driver">
+            <!-- <div class="driver">
               <img src="@/assets/images/digitalImages/line01.png">
+            </div>-->
+            <div class="driverY">
+              <i class="driverTcircle"></i>
+              <i class="driverBcircle"></i>
             </div>
             <div class="avg">
               <div class="commonBox">
@@ -159,15 +163,15 @@
 <script>
 //import { setInterval, clearInterval } from "timers";
 export default {
-  // props: 
+  // props:
   //   ["userData",
   //   "scanData",
   //   ],
   data() {
     return {
-      count:0
-    }
-  },
+      count: 0
+    };
+  }
   // mounted() {
   //   if (this.userData) {
   //     this.go();

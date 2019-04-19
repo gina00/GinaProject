@@ -157,6 +157,17 @@ export const constantRouterMap = [{
                 import ('@/views/digitalSummit/index')
         }]
     },
+    {
+        path: '/about',
+        component: Layout,
+        redirect: '/about/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/about/index')
+        }]
+    },
 
 ]
 

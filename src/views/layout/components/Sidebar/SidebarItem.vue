@@ -38,7 +38,7 @@
         </el-menu-item>
       </router-link>
     </el-submenu>
-    <router-link to="/shoppingmanage">
+    <router-link to="/about">
       <el-menu-item index="5">
         <i class="fa fa-address-card-o" aria-hidden="true"></i>
         <span slot="title" class="itemText">关于我</span>
