@@ -1,14 +1,12 @@
 <template>
   <section class="detailBox">
-    <el-card shadow="never">
-      <div v-if="title.length()>0" class="title">{{title}}</div>
-      <el-row class="detailShow">
-        <el-col v-for="item in data" :key="item" :span="colSpan">
-          <span class="lable">{{item.lable}}:</span>
-          <span class="value">{{item.value}}</span>
-        </el-col>
-      </el-row>
-    </el-card>
+    <div v-if="title.length>0" class="title">{{title}}</div>
+    <el-row class="detailShow">
+      <el-col v-for="item in data" :key="item" :span="colSpan">
+        <span class="lable">{{item.lable}}:</span>
+        <span class="value">{{item.value}}</span>
+      </el-col>
+    </el-row>
   </section>
 </template>
 
@@ -40,9 +38,6 @@ export default {
 };
 </script>
 <style lang="scss">
-.detailBox {
-  margin-bottom: 20px;
-}
 .detailBox .title {
   font-family: PingFangSC-Medium;
   font-size: 14px;

@@ -63,6 +63,11 @@ export const constantRouterMap = [{
                     component: () =>
                         import ('@/views/project/components/digital')
                 },
+                {
+                    path: '/project/flow',
+                    component: () =>
+                        import ('@/views/project/components/windowFlow')
+                },
             ]
         }]
     },
@@ -166,6 +171,17 @@ export const constantRouterMap = [{
             path: 'index',
             component: () =>
                 import ('@/views/about/index')
+        }]
+    },
+    {
+        path: '/flow',
+        component: Layout,
+        redirect: '/flow/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/digitalSummit/flow')
         }]
     },
 

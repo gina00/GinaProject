@@ -65,7 +65,9 @@ export default {
         return "4-1";
       } else if (this.$route.path.indexOf("/digital") == 0) {
         return "4-2";
-      } else if (this.$route.path.indexOf("/about/index") == 0) {
+      } else if (this.$route.path.indexOf("/flow") == 0) {
+        return "4-3";
+      }else if (this.$route.path.indexOf("/about/index") == 0) {
         return "5";
       }
     }

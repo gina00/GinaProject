@@ -37,6 +37,12 @@
           <span slot="title" class="itemText">用户特征</span>
         </el-menu-item>
       </router-link>
+      <router-link to="/flow">
+        <el-menu-item index="4-3">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          <span slot="title" class="itemText">流量包选择</span>
+        </el-menu-item>
+      </router-link>
     </el-submenu>
     <router-link to="/about">
       <el-menu-item index="5">

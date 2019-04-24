@@ -2,7 +2,7 @@
   <div>
     <div class="breathe-btn"></div>
     <div id="mountNode"></div>
-    <el-dialog class="detailBox" title="节点详情" :visible.sync="showNodeDetail">
+    <el-dialog class="nodeDetailBox" title="节点详情" :visible.sync="showNodeDetail">
       <template>
         <div>
           <el-row>
@@ -59,13 +59,6 @@
           <el-table-column prop="name" label="姓名" width="120"></el-table-column>
           <el-table-column prop="address" label="地址" show-overflow-tooltip></el-table-column>
         </el-table>
-        <!-- <el-form-item label="源节点" :label-width="formLabelWidth">
-          <el-select v-model="form.source" placeholder="请选择节点关系">
-            <div v-for="item in graphList.content.data" :key="item.index">
-              <el-option :label="item.name" :value="item.id"></el-option>
-            </div>
-          </el-select>
-        </el-form-item>-->
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="addNode = false">取 消</el-button>
@@ -74,19 +67,17 @@
     </el-dialog>
     <el-dialog title="编辑节点" :visible.sync="editNode">
       <el-form :model="form">
-        <el-form-item label="节点名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="节点类型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
+        <el-form-item label="目标节点" :label-width="formLabelWidth">
+          <el-select v-model="form.target" placeholder="请选择节点关系">
+            <div v-for="item in this.filterData" :key="item.index">
+              <el-option :label="item.name" :value="item.id"></el-option>
+            </div>
           </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="editNode = false">取 消</el-button>
-        <el-button type="primary" @click="editNode = false">确 定</el-button>
+        <el-button type="primary" @click="editNodeP">确 定</el-button>
       </div>
     </el-dialog>
     <el-dialog title="删除节点" :visible.sync="delNode">
@@ -172,7 +163,9 @@ export default {
         }
       ],
       multipleSelection: [],
-      deleteModel:""
+      dataModel: "",
+      editData: "",
+      filterData: []
     };
   },
   mounted() {
@@ -205,7 +198,6 @@ export default {
       this.addNode = false;
     },
     AddNewLink() {
-      debugger;
       var newLink = {};
       //节点上添加，源节点即为该节点
       newLink.source = this.source.id;
@@ -213,8 +205,8 @@ export default {
       this.graphList.content.links.push(newLink);
       console.log(this.graphList.content.links);
     },
+    //状态设置
     //是否红色node，是的话为祖父组件添加样式。
-
     getEleParent(id) {
       var statuNode = document.getElementById(id);
       var parent = statuNode.parentNode;
@@ -229,7 +221,6 @@ export default {
       var allClass = element.className.trim().split(" ");
       return allClass.indexOf(cla) > -1;
     },
-
     addClass(cla, element) {
       //cla 需要添加的类名，element 是需要添加类名的
       //没有class属性
@@ -246,32 +237,70 @@ export default {
         }
       }
     },
-    // 删除节点方法，获取该节点的索引
-    delIndexOf(val) {
+    // 删除节点
+    //方法，获取该节点的索引
+    removeData(arr, val) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == val) {
+          arr.splice(i, 1);
+          break;
+        }
+      }
+    },
+    removeCurren() {
+      debugger;
       var dataArr = this.graphList.content.data;
-      for (var i = 0; i < dataArr.length; i++) {
-        if (dataArr[i] == val) return i;
+      var linkArr = this.graphList.content.links;
+      this.removeData(dataArr, this.dataModel);
+      for (var key in linkArr) {
+        if (
+          linkArr[key].source == this.dataModel.id ||
+          linkArr[key].target == this.dataModel.id
+        ) {
+          delete linkArr[key];
+        }
       }
-      return -1;
-    },
-    removeData(val) {
-      var index = this.delIndexOf(val);
-      if (index > -1) {
-        //该数据是否存在
-        this.graphList.content.data.splice(index, 1); //删除该索引的数据
-      }
-    },
-    removeCurren(){
-      this.removeData(this.deleteModel);
-      alert("已删除数据")
-      //数据加到model中 要通知G6重绘画布
+      this.delNode = false;
+      //重新渲染画布
       const data = {
         nodes: this.graphList.content.data,
         edges: this.graphList.content.links
       };
       this.g6Graph.read(data);
-      this.delNode = false;
     },
+    filterDataNoe(arr) {
+      var editId = this.editData.id;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].id != editId) {
+          var newArr = {
+            id: arr[i].id,
+            name: arr[i].name
+          };
+          this.filterData.push(newArr);
+        }
+      }
+      return this.filterData;
+    },
+    editNodeP() {
+      this.editNewLink();
+      //重新渲染画布
+      const data = {
+        nodes: this.graphList.content.data,
+        edges: this.graphList.content.links
+      };
+      this.g6Graph.read(data);
+      this.editNode = false;
+      this.filterData=[];
+    },
+    editNewLink() {
+      debugger;
+      var newLink = {};
+      //节点上添加，源节点即为该节点
+      newLink.source = this.editData.id;
+      newLink.target = this.form.target;
+      this.graphList.content.links.push(newLink);
+    },
+
     //创建关系图
     create() {
       const data = {
@@ -425,8 +454,11 @@ export default {
         }
         //编辑节点
         if (target.id == `editIcon${item.id}`) {
+          
           if (this.editNode == false) {
             this.editNode = true;
+            this.editData = itemName;
+            this.filterDataNoe(this.graphList.content.data);
           }
         }
         //添加节点
@@ -441,18 +473,9 @@ export default {
         //删除节点
         if (target.id == `deleteIcon${item.id}`) {
           console.log(item.model);
-          // var dataArr = this.graphList.content.data;
-          // var targetArr = this.graphList.content.links;
-          // for (var i = 0; i < targetArr.length; i++) {
-          //   if (targetArr[i].target == item.id) {
-          //     alert("这是源节点");
-          //   }
-          // }
-
           if (this.delNode == false) {
             this.delNode = true;
-            this.deleteModel=item.model;
-            console.log(this.graphList.content.data);
+            this.dataModel = item.model;
           }
         }
       });
@@ -506,7 +529,7 @@ export default {
   justify-content: space-between;
 }
 
-.detailBox .title {
+.nodeDetailBox .title {
   background: #f2f6fc;
   padding: 15px;
   text-align: right;
@@ -515,7 +538,7 @@ export default {
   margin-bottom: 1px;
 }
 
-.detailBox .val {
+.nodeDetailBox .val {
   padding: 15px;
   background: #f6f6f6;
   height: 47px;

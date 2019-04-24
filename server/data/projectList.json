@@ -48,5 +48,15 @@
         "operate": "查看详情",
         "link": "/project/digital",
         "createDate": "2018-03-22"
+    },
+    {
+        "id": 5,
+        "name": "IBOP流量包选择显示",
+        "detail": "本套餐随关联营销案生效，营销案失效则同步失效。生效期间每月赠送1G国内移动数据流量，超出后在国内使用按0.29元/M流量资费。执行套餐外费用和流量双封顶规则",
+        "imageSrc": "../../static/images/projectList/flow.png",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2018-04-22"
     }
 ]

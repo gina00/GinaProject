@@ -3,8 +3,12 @@
     <div class="titleBox">
       <span class="title">关于我</span>
     </div>
-    <infor :title=title :cloSize="3" :data=data></infor>
-    <infor :title=title2 :cloSize="2" :data=data2></infor>
+    <el-card shadow="never" class="card">
+      <infor :title="title" :cloSize="3" :data="data"></infor>
+    </el-card>
+    <el-card shadow="never">
+      <infor :title="title2" :cloSize="2" :data="data2"></infor>
+    </el-card>
   </section>
 </template>
 
@@ -16,8 +20,8 @@ export default {
   },
   data() {
     return {
-        title:"基本信息",
-        title2:"",
+      title: "基本信息",
+      title2: "",
       data: [
         {
           lable: "申请人",
@@ -99,5 +103,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card{
+    margin-bottom: 20px;
+}
 </style>
