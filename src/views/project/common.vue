@@ -6,9 +6,9 @@
       </router-link>
       <div class="title">
         <div class="text" >
-            <span>{{setName}}</span>
+            <span>{{projectName}}</span>
         </div>
-        <span class="date" style="margin-top:0;">创建时间：{{setDate}}</span>        
+        <span class="date" style="margin-top:0;">创建时间：{{projectDate}}</span>        
       </div>
     </div>
     <div class="content">
@@ -18,17 +18,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    setName(){
-      return this.$store.state.project.projectName
-    },
-    setDetail(){
-      return this.$store.state.project.projectDetail
-    },
-    setDate(){
-      return this.$store.state.project.projectDate
-    }
+    ...mapGetters([
+      'projectName',
+      'projectDetail',
+      'projectDate'
+    ]),
   },
 };
 </script>

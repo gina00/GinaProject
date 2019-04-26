@@ -268,7 +268,7 @@ export default {
       };
       this.g6Graph.read(data);
     },
-    filterDataNoe(arr) {
+    filterDataNode(arr) {
       var editId = this.editData.id;
       for (var i = 0; i < arr.length; i++) {
         if (arr[i].id != editId) {
@@ -279,6 +279,7 @@ export default {
           this.filterData.push(newArr);
         }
       }
+      //this.filterData=this.deteleObject(this.filterData);
       return this.filterData;
     },
     editNodeP() {
@@ -289,7 +290,7 @@ export default {
         edges: this.graphList.content.links
       };
       this.g6Graph.read(data);
-      this.editNode = false;
+      this.editNode = false;      
       this.filterData=[];
     },
     editNewLink() {
@@ -300,7 +301,34 @@ export default {
       newLink.target = this.form.target;
       this.graphList.content.links.push(newLink);
     },
+    //删除数组对象中重复的对象
+    deteleObject(obj) {
+      debugger
+      var uniques = [];
+      var stringify = {};
+      for (var i = 0; i < obj.length; i++) {
+         //返回一个由一个给定对象的自身可枚举属性组成的数组
+         //即keys=[text,value];
+        var keys = Object.keys(obj[i]);
 
+        keys.sort(function(a, b) {
+          return Number(a) - Number(b);
+        });
+        //str=""text""值""value""值""
+        var str = "";
+        for (var j = 0; j < keys.length; j++) {
+          str += JSON.stringify(keys[j]);
+          str += JSON.stringify(obj[i][keys[j]]);
+        }
+        //hasOwnProperty返回一个布尔值,指示对象自身属性中是否具有指定的属性
+        if (!stringify.hasOwnProperty(str)) {//判断字符串是否存在
+          uniques.push(obj[i]);
+          stringify[str] = true;//为已存入对象的属性str 设置值为true。因为hasOwnProperty返回一个布尔值。
+        }
+      }
+      uniques = uniques;
+      return uniques;
+    },
     //创建关系图
     create() {
       const data = {
@@ -454,12 +482,12 @@ export default {
         }
         //编辑节点
         if (target.id == `editIcon${item.id}`) {
-          
           if (this.editNode == false) {
             this.editNode = true;
             this.editData = itemName;
-            this.filterDataNoe(this.graphList.content.data);
+            this.filterDataNode(this.graphList.content.data);
           }
+          
         }
         //添加节点
         if (target.id == `addIcon${item.id}`) {

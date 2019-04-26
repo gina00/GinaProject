@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import getters from './getters'
 
 //分模块新建每个组件对应的store对象，并引入到此
 import questionStore from './modules/questionList' //管理某个组件的store对象，引入刚才的app.js
@@ -20,7 +21,8 @@ const store = new Vuex.Store({
         question: questionStore, //另起别名
         sidebar: sidebarStore, //另起别名
         project: projectStore, //另起别名
-    }
+    },
+    getters
 })
 
 export default store

@@ -114,18 +114,23 @@ export default {
       var uniques = [];
       var stringify = {};
       for (var i = 0; i < obj.length; i++) {
+         //返回一个由一个给定对象的自身可枚举属性组成的数组
+         //即keys=[text,value];
         var keys = Object.keys(obj[i]);
+
         keys.sort(function(a, b) {
           return Number(a) - Number(b);
         });
+        //str=""text""值""value""值""
         var str = "";
         for (var j = 0; j < keys.length; j++) {
           str += JSON.stringify(keys[j]);
           str += JSON.stringify(obj[i][keys[j]]);
         }
-        if (!stringify.hasOwnProperty(str)) {
+        //hasOwnProperty返回一个布尔值,指示对象自身属性中是否具有指定的属性
+        if (!stringify.hasOwnProperty(str)) {//判断字符串是否存在
           uniques.push(obj[i]);
-          stringify[str] = true;
+          stringify[str] = true;//为已存入对象的属性str 设置值为true。因为hasOwnProperty返回一个布尔值。
         }
       }
       uniques = uniques;

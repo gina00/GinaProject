@@ -6,11 +6,11 @@
       </router-link>
       <div class="title">
         <div class="text">
-          <span>{{setType}} - {{setName}}</span>
-            <el-button type="success" size="mini">{{setType}}</el-button>  
-          <p>{{setDetail}}</p>
+          <span>{{questionType}} - {{questionName}}</span>
+            <el-button type="success" size="mini">{{questionType}}</el-button>  
+          <p>{{questionDetail}}</p>
         </div>
-        <span class="date">创建时间：{{setDate}}</span>
+        <span class="date">创建时间：{{questionDate}}</span>
       </div>
     </div>
     <div class="content">
@@ -19,21 +19,30 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  computed: {
-    setName() {
-      return this.$store.state.question.questionName; //计算属性获取状态值
-    },
-    setType() {
-      return this.$store.state.question.questionType; //计算属性获取状态值
-    },
-    setDetail() {
-      return this.$store.state.question.questionDetail; //计算属性获取状态值
-    },
-    setDate() {
-      return this.$store.state.question.questionDate; //计算属性获取状态值
-    }
+  computed:{
+    ...mapGetters([
+      'questionName',
+      'questionType',
+      'questionDetail',
+      'questionDate'
+    ])
   }
+  // computed: {
+  //   setName() {
+  //     return this.$store.state.question.questionName; //计算属性获取状态值
+  //   },
+  //   setType() {
+  //     return this.$store.state.question.questionType; //计算属性获取状态值
+  //   },
+  //   setDetail() {
+  //     return this.$store.state.question.questionDetail; //计算属性获取状态值
+  //   },
+  //   setDate() {
+  //     return this.$store.state.question.questionDate; //计算属性获取状态值
+  //   }
+  // }
 };
 </script>
 <style lang="scss" scoped>
