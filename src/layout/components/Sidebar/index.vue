@@ -3,7 +3,7 @@
     <el-menu
       :default-active="activedMenu()"
       class="el-menu-vertical-demo"
-      background-color="#2b3844"
+      background-color="#252a2f"
       text-color="#fff"
       active-text-color="#00aaff"
       @open="handleOpen"
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import SiderbarItem from "./SidebarItem";
 export default {
   components: {
@@ -36,6 +37,9 @@ export default {
     return {};
   },
   computed: {
+    ...mapGetters([
+      'isCollapse'
+    ]),
     getChange: {
       //新增 get和set,解决v-model的双向绑定问题。单独定义getChange方法不能实现双向数据绑定
       get: function() {
@@ -67,7 +71,7 @@ export default {
         return "4-2";
       } else if (this.$route.path.indexOf("/flow") == 0) {
         return "4-3";
-      }else if (this.$route.path.indexOf("/about/index") == 0) {
+      } else if (this.$route.path.indexOf("/about/index") == 0) {
         return "5";
       }
     }
@@ -83,7 +87,6 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 231px;
   min-height: 400px;
-  border-top: 1px solid #36424d;
   color: #fff;
 }
 
@@ -91,7 +94,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
-  .el-radio-group{
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  .el-radio-group {
     margin-bottom: 0 !important;
   }
   .itemText {

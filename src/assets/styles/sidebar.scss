@@ -3,11 +3,11 @@
     height: 100%;
     transition: width 0.28s;
     // font-size: 0;
-    top: 80px;
+    top: 60px;
     left: 0;
     overflow: auto;
     text-align: left;
-    padding-bottom: 80px;
+    padding-bottom: 0px;
     box-shadow: 1px 0px 1px #eaeaea;
     .el-scrollbar__view {
         height: 100%;
@@ -28,7 +28,7 @@
             width: 100%;
             .el-radio-button__inner {
                 border: none;
-                background: #23313f !important;
+                background: #252a2f !important;
                 width: 100%;
                 color: #eaeaea;
                 text-align: left;

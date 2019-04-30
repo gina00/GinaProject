@@ -16,7 +16,6 @@
 </template>
 
 <script>
-// import { HeaderItem, SideBar, AppMain } from "./components";
 import SideBar from "./components/Sidebar/index";
 import AppMain from "./components/AppMain";
 import HeaderItem from "./components/Header/index";
@@ -50,7 +49,7 @@ export default {
   background: #f5f7fa;
   padding: 20px;
   text-align: left;
-  margin-top: 80px;
+  margin-top: 60px;
   width: calc(100% - 230px);
   display: table;
 }
@@ -68,8 +67,8 @@ export default {
   width: 100%;
   height: 100%;
   header {
-    height: 80px;
-    background: #2b3844;
+    height: 60px;
+    background: #252a2f;
     position: fixed;
     top: 0;
     width: 100%;

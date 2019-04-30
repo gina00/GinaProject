@@ -8,6 +8,6 @@ const getters = {
     questionDate: state => state.question.questionDate,
     projectName: state => state.project.projectName,
     projectDetail: state => state.project.projectDetail,
-    projectDate: state => state.project.projectDate,
+    projectDate: state => state.project.projectDate
 }
 export default getters

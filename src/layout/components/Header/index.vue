@@ -46,7 +46,7 @@ export default {
     color: #fff;
     border-right: 1px solid #36424d;
     width: 230px;
-    height: 80px;
+    height: 60px;
     display: flex;
     align-items: center;
     .logoimg {
