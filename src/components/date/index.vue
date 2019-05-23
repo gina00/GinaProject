@@ -1,15 +1,16 @@
 <template>
     <section>
-        <div>日期</div>
-        <div>时钟</div>
+        <div>{{new Date()|moment("YYYY-MM-DD")}}</div>
+        <div>{{new Date()|moment("HH:mm:ss")}}</div>
     </section>
 </template>
 
 <script>
+import moment from "vue-moment";
 export default {
     data() {
         return {
-            
+            today:new Date()
         }
     },
     methods: {

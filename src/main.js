@@ -23,6 +23,7 @@ Vue.prototype.$echarts = ECharts
     /* eslint-disable no-new */
 Vue.prototype.$jsPlumb = jsPlumb.jsPlumb
 Vue.prototype.$axios = axios
+Vue.use(require('vue-moment'))
 
 Vue.use(VueResource)
     //要给axios添加拦截器，为每个请求添加 heard

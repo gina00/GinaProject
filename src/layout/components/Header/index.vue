@@ -7,6 +7,7 @@
       <span>GinaProject</span>
     </div>
     <div class="iconBox">
+      <date></date>
       <a>
         <el-badge is-dot class="item">
           <i class="fa fa-bell-o" aria-hidden="true"></i>
@@ -29,7 +30,11 @@
 </template>
 
 <script>
+import Date from '@/components/date/index'
 export default {
+  components:{
+    Date
+  },
   data() {
     return {
       searchVal: ""
