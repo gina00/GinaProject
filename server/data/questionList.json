@@ -71,6 +71,14 @@
             "detail": "已知宽高元素的垂直水平居中",
             "operates": ["查看详情"],
             "link": "/question/knownMiddle"
+        },
+        {
+            "name": "SVG组件",
+            "type": "vue",
+            "date": "2019-05-24",
+            "detail": "svg在vue里面的使用,封装一个svg组件",
+            "operates": ["查看详情"],
+            "link": "/question/svg"
         }
     ]
 

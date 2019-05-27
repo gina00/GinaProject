@@ -51,29 +51,4 @@ export default {
 </script>
 
 <style lang="scss">
-.contentText {
-  .methodHead {
-    font-weight: bold;
-  }
-  p {
-    line-height: 1.5em;
-    padding: 15px 0;
-  }
-  img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    -ms-interpolation-mode: bicubic;
-  }
-  .methodBox{
-      margin: 10px 0;
-  }
-  .codeBox{
-      margin: 10px 0;
-  }
-  .important{
-      color: red;
-  }
-}
 </style>

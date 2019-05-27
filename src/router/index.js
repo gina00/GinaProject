@@ -137,6 +137,11 @@ export const constantRouterMap = [{
                     component: () =>
                         import ('@/views/question/components/knownMiddle')
                 },
+                {
+                    path: '/question/svg',
+                    component: () =>
+                        import ('@/views/question/components/vue-svg')
+                },
             ]
         }]
     },
