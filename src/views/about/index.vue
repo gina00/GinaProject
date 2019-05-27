@@ -1,6 +1,7 @@
 <template>
   <section>
     <div class="titleBox">
+        <svg-icon icon-class="dock" class-name="icon-dock"/>
       <span class="title">关于我</span>
     </div>
     <el-card shadow="never" class="card">

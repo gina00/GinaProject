@@ -15,6 +15,7 @@ import jsPlumb from 'jsplumb'
 import axios from "axios"
 import store from '@/store/index'
 import VueResource from 'vue-resource'
+import '@/icons'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI);
