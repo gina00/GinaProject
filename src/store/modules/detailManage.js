@@ -1,22 +1,26 @@
-const projectManage = {
+const detailManage = {
     state: {
-        projectName: '1', //控制标签页的名称
-        projectDetail: 'xxxxxx', //控制标签页的名称
-        projectDate: '0000-00-00' //控制标签页的名称
+        name: '1', //控制标签页的名称
+        title: 'xxxxxx', //控制标签页的名称
+        date: '0000-00-00', //控制标签页的名称
+        type:'type'
     },
     //mutations：动态的改变state的值完成页面的同步渲染,直接在state对象后面加就行了
     //mutations是定义：改变state方法的集合
     //mutations对象是函数
     //默认传值是state，也就是上面的state，所以可以直接操作state.count
     mutations: {
-        getProjectName(state, dataName) {
-            state.projectName = dataName;
+        getName(state, dataName) {
+            state.name = dataName;
         },
-        getProjectDetail(state, dataName) {
-            state.projectDetail = dataName;
+        geTitle(state, dataName) {
+            state.title = dataName;
         },
-        getProjectDate(state, dataName) {
-            state.projectDate = dataName;
+        getDate(state, dataName) {
+            state.date = dataName;
+        },
+        getType(state, dataName) {
+            state.type = dataName;
         },
         //在组件里某个按钮可以这样使用 ——> $store.commit('Count ')，
         //提交Count方法，改变count值
@@ -36,4 +40,4 @@ const projectManage = {
     }
 
 }
-export default projectManage
+export default detailManage

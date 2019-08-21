@@ -37,7 +37,7 @@ export const constantRouterMap = [{
         children: [{
             path: 'common',
             component: () =>
-                import ('@/views/project/common'),
+                import ('@/components/inforCommon/index'),
             children: [{
                     path: '/project/customer',
                     component: () =>
@@ -91,7 +91,7 @@ export const constantRouterMap = [{
         children: [{
             path: 'common',
             component: () =>
-                import ('@/views/question/common'),
+                import ('@/components/inforCommon/index'),
             children: [{
                     path: '/question/tree',
                     component: () =>

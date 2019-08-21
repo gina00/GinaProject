@@ -1,14 +1,16 @@
 <template>
   <section class="detail">
     <div class="titleBox">
-      <router-link to="/project">
-        <el-button icon="el-icon-back" circle></el-button>
-      </router-link>
+      <span>
+        <el-button icon="el-icon-back" circle @click="$router.go(-1)"></el-button>
+      </span>
       <div class="title">
         <div class="text" >
-            <span>{{projectName}}</span>
+            <span>{{commonType}}-{{commonName}}</span>
+            <el-button type="success" size="mini">{{commonType}}</el-button>
+            <p>{{commonTitle}}</p>
         </div>
-        <span class="date" style="margin-top:0;">创建时间：{{projectDate}}</span>        
+        <span class="date" style="margin-top:0;">创建时间：{{commonDate}}</span>        
       </div>
     </div>
     <div class="content">
@@ -22,11 +24,13 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'projectName',
-      'projectDetail',
-      'projectDate'
+      'commonName',
+      'commonTitle',
+      'commonDate',
+      'commonType'
     ]),
   },
+  
 };
 </script>
 

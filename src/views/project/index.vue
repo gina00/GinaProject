@@ -46,9 +46,9 @@ export default {
       });
     },
     showDetail(index) {
-      this.$store.commit("getProjectName",this.list[index].name);
-      this.$store.commit("getProjectDetail",this.list[index].detail);
-      this.$store.commit("getProjectDate",this.list[index].createDate);
+      this.$store.commit("getName",this.list[index].name);
+      this.$store.commit("geTitle",this.list[index].detail);
+      this.$store.commit("getDate",this.list[index].createDate);
       this.$router.push({
         path: this.list[index].link
       });

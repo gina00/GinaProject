@@ -166,10 +166,10 @@ export default {
       //commit提交，修改值
       //提交setCount方法,与store中mutation定义的方法名一样，
       //后面参数参照提交setCount方法是否需要传参。
-      this.$store.commit("getQuestionName", row.name);
-      this.$store.commit("getQuestionType", row.type);
-      this.$store.commit("getQuestionDetail", row.detail);
-      this.$store.commit("getQuestionDate", row.date);
+      this.$store.commit("getName", row.name);
+      this.$store.commit("getType", row.type);
+      this.$store.commit("geTitle", row.detail);
+      this.$store.commit("getDate", row.date);
 
       this.$router.push({
         path: row.link,
