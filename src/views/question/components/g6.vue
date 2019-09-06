@@ -290,8 +290,8 @@ export default {
         edges: this.graphList.content.links
       };
       this.g6Graph.read(data);
-      this.editNode = false;      
-      this.filterData=[];
+      this.editNode = false;
+      this.filterData = [];
     },
     editNewLink() {
       debugger;
@@ -303,12 +303,12 @@ export default {
     },
     //删除数组对象中重复的对象
     deteleObject(obj) {
-      debugger
+      debugger;
       var uniques = [];
       var stringify = {};
       for (var i = 0; i < obj.length; i++) {
-         //返回一个由一个给定对象的自身可枚举属性组成的数组
-         //即keys=[text,value];
+        //返回一个由一个给定对象的自身可枚举属性组成的数组
+        //即keys=[text,value];
         var keys = Object.keys(obj[i]);
 
         keys.sort(function(a, b) {
@@ -321,9 +321,10 @@ export default {
           str += JSON.stringify(obj[i][keys[j]]);
         }
         //hasOwnProperty返回一个布尔值,指示对象自身属性中是否具有指定的属性
-        if (!stringify.hasOwnProperty(str)) {//判断字符串是否存在
+        if (!stringify.hasOwnProperty(str)) {
+          //判断字符串是否存在
           uniques.push(obj[i]);
-          stringify[str] = true;//为已存入对象的属性str 设置值为true。因为hasOwnProperty返回一个布尔值。
+          stringify[str] = true; //为已存入对象的属性str 设置值为true。因为hasOwnProperty返回一个布尔值。
         }
       }
       uniques = uniques;
@@ -336,19 +337,48 @@ export default {
         edges: this.graphList.content.links
       };
       //自定义线
-      G6.registerEdge("VHV", {
-        getPath(item) {
-          const points = item.getPoints();
-          const start = points[0];
-          const end = points[points.length - 1];
-          const vgap = end.y - start.y;
-          const ygap = (vgap / 4) * 3;
-          return [
-            ["M", start.x, start.y - 25], //moveto
-            ["L", start.x, start.y + 25],
-            ["L", end.x, start.y + 25],
-            ["L", end.x, end.y]
-          ];
+      // G6.registerEdge("VHV", {
+      //   getPath(item) {
+      //     const points = item.getPoints();
+      //     const start = points[0];
+      //     const end = points[points.length - 1];
+      //     const vgap = end.y - start.y;
+      //     const ygap = (vgap / 4) * 3;
+      //     return [
+      //       ["M", start.x, start.y - 25], //moveto
+      //       ["L", start.x, start.y + 25],
+      //       ["L", end.x, start.y + 25],
+      //       ["L", end.x, end.y]
+      //     ];
+      //   }
+      // });
+      G6.registerEdge("line-arrow", {
+        draw: function draw(cfg, group) {
+          var startPoint = cfg.startPoint,
+            endPoint = cfg.endPoint;
+
+          var keyShape = group.addShape("path", {
+            attrs: {
+              path: [
+                ["M", startPoint.x, startPoint.y],
+                ["L", endPoint.x / 3 + (2 / 3) * startPoint.x, startPoint.y],
+                ["L", endPoint.x / 3 + (2 / 3) * startPoint.x, endPoint.y],
+                ["L", endPoint.x, endPoint.y]
+              ],
+              stroke: "#BBB",
+              lineWidth: 1,
+              startArrow: {
+                path: "M 6,0 L -6,-6 L -3,0 L -6,6 Z",
+                d: 6
+              },
+              endArrow: {
+                path: "M 6,0 L -6,-6 L -3,0 L -6,6 Z",
+                d: 6
+              },
+              className: "edge-shape"
+            }
+          });
+          return keyShape;
         }
       });
       //自定义节点-html元素节点
@@ -366,27 +396,17 @@ export default {
           <div>
             <div class='node normal'>
               <div class='titleBox'>
-                  <div class='nodeID' id='${dataModel.id}'>${
-            dataModel.name
-          }</div>
-                  <i class="fa fa-cog icon" aria-hidden="true" id='statusIcon${
-                    dataModel.id
-                  }'></i>
+                  <div class='nodeID' id='${dataModel.id}'>${dataModel.name}</div>
+                  <i class="fa fa-cog icon" aria-hidden="true" id='statusIcon${dataModel.id}'></i>
               </div>
               <div class='editBox'>
                   <div class='editIcon'>
-                      <i class="fa fa-pencil-square-o icon" aria-hidden="true" id='editIcon${
-                        dataModel.id
-                      }'></i>
+                      <i class="fa fa-pencil-square-o icon" aria-hidden="true" id='editIcon${dataModel.id}'></i>
                   </div>
 
                   <div class='operatorIcon'>
-                      <i class="fa fa-plus icon" aria-hidden="true" id='addIcon${
-                        dataModel.id
-                      }'></i>
-                      <i class="fa fa-minus icon" aria-hidden="true" id='deleteIcon${
-                        dataModel.id
-                      }'></i>
+                      <i class="fa fa-plus icon" aria-hidden="true" id='addIcon${dataModel.id}'></i>
+                      <i class="fa fa-minus icon" aria-hidden="true" id='deleteIcon${dataModel.id}'></i>
                   </div>
               </div>
             </div>
@@ -425,7 +445,7 @@ export default {
       });
       //连接线的样式
       graph.edge({
-        shape: "VHV",
+        shape: "line-arrow",
         style: {
           endArrow: true,
           lineWidth: 3,
@@ -487,7 +507,6 @@ export default {
             this.editData = itemName;
             this.filterDataNode(this.graphList.content.data);
           }
-          
         }
         //添加节点
         if (target.id == `addIcon${item.id}`) {

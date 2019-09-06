@@ -50,6 +50,12 @@
         <span slot="title" class="itemText">关于我</span>
       </el-menu-item>
     </router-link>
+    <router-link to="/dom">
+      <el-menu-item index="5">
+        <i class="fa fa-address-card-o" aria-hidden="true"></i>
+        <span slot="title" class="itemText">JS&CSS</span>
+      </el-menu-item>
+    </router-link>
   </div>
 </template>
 

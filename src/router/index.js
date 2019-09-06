@@ -189,7 +189,17 @@ export const constantRouterMap = [{
                 import ('@/views/digitalSummit/flow')
         }]
     },
-
+    {
+        path: '/dom',
+        component: Layout,
+        redirect: '/dom/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/dom/index')
+        }]
+    },
 ]
 
 export default new Router({
