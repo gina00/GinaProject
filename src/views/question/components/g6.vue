@@ -337,50 +337,50 @@ export default {
         edges: this.graphList.content.links
       };
       //自定义线
-      // G6.registerEdge("VHV", {
-      //   getPath(item) {
-      //     const points = item.getPoints();
-      //     const start = points[0];
-      //     const end = points[points.length - 1];
-      //     const vgap = end.y - start.y;
-      //     const ygap = (vgap / 4) * 3;
-      //     return [
-      //       ["M", start.x, start.y - 25], //moveto
-      //       ["L", start.x, start.y + 25],
-      //       ["L", end.x, start.y + 25],
-      //       ["L", end.x, end.y]
-      //     ];
-      //   }
-      // });
-      G6.registerEdge("line-arrow", {
-        draw: function draw(cfg, group) {
-          var startPoint = cfg.startPoint,
-            endPoint = cfg.endPoint;
-
-          var keyShape = group.addShape("path", {
-            attrs: {
-              path: [
-                ["M", startPoint.x, startPoint.y],
-                ["L", endPoint.x / 3 + (2 / 3) * startPoint.x, startPoint.y],
-                ["L", endPoint.x / 3 + (2 / 3) * startPoint.x, endPoint.y],
-                ["L", endPoint.x, endPoint.y]
-              ],
-              stroke: "#BBB",
-              lineWidth: 1,
-              startArrow: {
-                path: "M 6,0 L -6,-6 L -3,0 L -6,6 Z",
-                d: 6
-              },
-              endArrow: {
-                path: "M 6,0 L -6,-6 L -3,0 L -6,6 Z",
-                d: 6
-              },
-              className: "edge-shape"
-            }
-          });
-          return keyShape;
+      G6.registerEdge("VHV", {
+        getPath(item) {
+          const points = item.getPoints();
+          const start = points[0];
+          const end = points[points.length - 1];
+          const vgap = end.y - start.y;
+          const ygap = (vgap / 4) * 3;
+          return [
+            ["M", start.x, start.y - 25], //moveto
+            ["L", start.x, start.y + 25],
+            ["L", end.x, start.y + 25],
+            ["L", end.x, end.y]
+          ];
         }
       });
+      // G6.registerEdge("line-arrow", {
+      //   draw: function draw(cfg, group) {
+      //     var startPoint = cfg.startPoint,
+      //       endPoint = cfg.endPoint;
+
+      //     var keyShape = group.addShape("path", {
+      //       attrs: {
+      //         path: [
+      //           ["M", startPoint.x, startPoint.y],
+      //           ["L", endPoint.x / 3 + (2 / 3) * startPoint.x, startPoint.y],
+      //           ["L", endPoint.x / 3 + (2 / 3) * startPoint.x, endPoint.y],
+      //           ["L", endPoint.x, endPoint.y]
+      //         ],
+      //         stroke: "#BBB",
+      //         lineWidth: 1,
+      //         startArrow: {
+      //           path: "M 6,0 L -6,-6 L -3,0 L -6,6 Z",
+      //           d: 6
+      //         },
+      //         endArrow: {
+      //           path: "M 6,0 L -6,-6 L -3,0 L -6,6 Z",
+      //           d: 6
+      //         },
+      //         className: "edge-shape"
+      //       }
+      //     });
+      //     return keyShape;
+      //   }
+      // });
       //自定义节点-html元素节点
       G6.registerNode("jobNodeCard", {
         // 绘制
