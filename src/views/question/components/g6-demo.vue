@@ -1,45 +1,23 @@
 <template>
-  <div id="mountNode"></div>
+  <div>
+    <div id="mountNode"></div>
+  </div>
 </template>
 
 <script>
-import G6 from "@antv/g6";
-import "@antv/g6/build/plugin.layout.dagre";
+import G6 from "_@antv_g6@3.0.7-beta.1@@antv/g6";
+import dagre from "_dagre@0.8.4@dagre/dist/dagre";
+import { debuglog } from "util";
 export default {
+  data() {
+    return {};
+  },
   mounted() {
     this.create();
   },
   methods: {
     create() {
-      G6.registerNode("rect", {
-        getPath(item) {
-          const width = 100; // 一半宽
-          const height = 40; // 一半高
-          return G6.Util.getRectPath(
-            -width / 2,
-            -height / 2,
-            width,
-            height,
-            10
-          );
-        },
-        anchor(node) {
-          // const hierarchy = node.getHierarchy();
-          const inEdges = node.getInEdges();
-          const outEdges = node.getOutEdges();
-          const inEdgesNum = inEdges.length;
-          const outEdgesNum = outEdges.length;
-          const inAnchorArea = 1 - 1 / (inEdgesNum + 1);
-          const outAnchorArea = 1 - 1 / (outEdgesNum + 1);
-          const inGap = inAnchorArea / inEdgesNum;
-          const outGap = outAnchorArea / outEdgesNum;
-          const inAnchors = getAnchors(inEdgesNum, inGap, "in");
-          const outAnchors = getAnchors(outEdgesNum, outGap, "out");
-          const anchor = inAnchors.concat(outAnchors);
-          return anchor;
-        }
-      });
-      const data = {
+      var data = {
         nodes: [
           {
             id: "收集日志"
@@ -49,9 +27,6 @@ export default {
           },
           {
             id: "入 hdfs"
-          },
-          {
-            id: "入 hdfs 2"
           },
           {
             id: "hive 计算"
@@ -70,15 +45,7 @@ export default {
             target: "入 hdfs"
           },
           {
-            source: "收集日志",
-            target: "入 hdfs 2"
-          },
-          {
             source: "入 hdfs",
-            target: "hive 计算"
-          },
-          {
-            source: "入 hdfs 2",
             target: "hive 计算"
           },
           {
@@ -88,78 +55,97 @@ export default {
           {
             source: "hive 计算",
             target: "report"
-          },
-          {
-            source: "入 es 集群",
-            target: "report"
-          },
-          {
-            source: "入 hdfs 2",
-            target: "report"
-          },
-          {
-            source: "入 hdfs 2",
-            target: "入 es 集群"
           }
         ]
       };
-      const graph = new G6.Graph({
-        container: "mountNode",
-        fitView: "cc",
-        width: 500,
-        height: 500,
-        plugins: [new G6.Plugins["layout.dagre"]()],
-        defaultIntersectBox: "rect" // 使用矩形包围盒
+      var g = new dagre.graphlib.Graph();
+      g.setDefaultEdgeLabel(function() {
+        return {};
       });
-      graph.node({
-        shape: "rect",
-        label(model) {
-          return model.id;
-        },
-        style: {
-          stroke: "#ddf",
-          fill: "#6694FF",
-          fillOpacity: 0.45,
-          lineWidth: 2
-        }
+      g.setGraph({
+        rankdir: "TB"
       });
-      graph.edge({
-        // shape: 'polyline',
-        style: {
-          endArrow: true,
-          stroke: "#bbb",
-          lineWidth: 1.5,
-          strokeOpacity: 1
-        }
+      data.nodes.forEach(function(node) {
+        node.label = node.id;
+        g.setNode(node.id, {
+          width: 150,
+          height: 50
+        });
       });
-      graph.read(data);
-
-      function getAnchors(edgesNum, gap, type) {
-        const anchors = [];
-        let y;
-        if (type === "out") y = 1;
-        else y = 0;
-
-        if (edgesNum % 2) {
-          // odd number
-          anchors.push([0.5, y]);
-          for (let i = 1; i <= (edgesNum - 1) / 2; i += 1) {
-            anchors.push([0.5 - i * gap, y]);
-            anchors.push([0.5 + i * gap, y]);
+      data.edges.forEach(function(edge) {
+        g.setEdge(edge.source, edge.target);
+      });
+      dagre.layout(g);
+      var coord = void 0;
+      g.nodes().forEach(function(node, i) {
+        coord = g.node(node);
+        data.nodes[i].x = coord.x;
+        data.nodes[i].y = coord.y;
+      });
+      g.edges().forEach(function(edge, i) {
+        coord = g.edge(edge);
+        data.edges[i].startPoint = coord.points[0];
+        data.edges[i].endPoint = coord.points[coord.points.length - 1];
+        data.edges[i].controlPoints = coord.points.slice(
+          1,
+          coord.points.length - 1
+        );
+      });
+      G6.registerNode(
+        "operation",
+        {
+          drawShape: function drawShape(cfg, group) {
+            var rect = group.addShape("rect", {
+              attrs: {
+                x: -75,
+                y: -25,
+                width: 150,
+                height: 50,
+                radius: 10,
+                stroke: "#00C0A5",
+                fill: "#92949F",
+                fillOpacity: 0.45,
+                lineWidth: 2
+              }
+            });
+            return rect;
           }
-        } else {
-          // even number
-          if (edgesNum != 0) {
-            anchors.push([0.5 - gap / 2, y]);
-            anchors.push([0.5 + gap / 2, y]);
-            for (let i = 1; i <= (edgesNum - 2) / 2; i += 1) {
-              anchors.push([0.5 - gap / 2 - i * gap, y]);
-              anchors.push([0.5 + gap / 2 + i * gap, y]);
+        },
+        "single-shape"
+      );
+
+      var graph = new G6.Graph({
+        container: "mountNode",
+        width: window.innerWidth,
+        height: window.innerHeight,
+        pixelRatio: 2,
+        modes: {
+          default: ["drag-canvas", "zoom-canvas"]
+        },
+        defaultNode: {
+          shape: "operation",
+          labelCfg: {
+            style: {
+              fill: "#666",
+              fontSize: 14,
+              fontWeight: "bold"
             }
           }
+        },
+        defaultEdge: {
+          shape: "polyline"
+        },
+        edgeStyle: {
+          default: {
+            endArrow: true,
+            lineWidth: 2,
+            stroke: "#ccc"
+          }
         }
-        return anchors;
-      }
+      });
+      graph.data(data);
+      graph.render();
+      graph.fitView();
     }
   }
 };

@@ -79,6 +79,14 @@
             "detail": "svg在vue里面的使用,封装一个svg组件",
             "operates": ["查看详情"],
             "link": "/question/svg"
+        },
+        {
+            "name": "G6-卡片节点",
+            "type": "antV-G6",
+            "date": "2019-09-19",
+            "detail": "研究G6卡片节点以及添加点和添加线功能",
+            "operates": ["查看详情"],
+            "link": "/question/g6-behavior"
         }
     ]
 

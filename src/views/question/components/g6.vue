@@ -93,7 +93,7 @@
 <script>
 import G6 from "@antv/g6";
 import G6Editor from "@antv/g6-editor";
-import "@antv/g6/build/plugin.layout.dagre";
+// import "@antv/g6/build/plugins";
 import { debuglog } from "util";
 export default {
   data() {
@@ -445,7 +445,7 @@ export default {
       });
       //连接线的样式
       graph.edge({
-        shape: "line-arrow",
+        shape: "VHV",
         style: {
           endArrow: true,
           lineWidth: 3,

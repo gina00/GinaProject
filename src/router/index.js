@@ -142,6 +142,11 @@ export const constantRouterMap = [{
                     component: () =>
                         import ('@/views/question/components/vue-svg')
                 },
+                {
+                    path: '/question/g6-behavior',
+                    component: () =>
+                        import ('@/views/question/components/g6-behavior')
+                },
             ]
         }]
     },
