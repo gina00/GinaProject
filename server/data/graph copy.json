@@ -1,0 +1,144 @@
+{
+    "content": {
+        "nodes": [{
+                "id": "1",
+                "name": "root-flow",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000016,
+                "operate": {
+                    "delete": "删除",
+                    "edit": "编辑"
+                  },
+                  "x":50,
+                  "y":50
+
+            },
+            {
+                "id": "2",
+                "name": "node-flow2",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000017,
+                "operate": {
+                    "delete": "删除",
+                    "edit": "编辑"
+                  },
+                  "x":150,
+                  "y":350
+            },
+            {
+                "id": "3",
+                "name": "node-flow3",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000018,
+                "operate": {
+                    "delete": "删除",
+                    "edit": "编辑"
+                  }
+            },
+            {
+                "id": "4",
+                "name": "node-flow4",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000019
+            },
+            {
+                "id": "5",
+                "name": "root-flow5",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000016
+
+            },
+            {
+                "id": "6",
+                "name": "node-flow6",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000017
+            },
+            {
+                "id": "7",
+                "name": "node-flow7",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000018
+            },
+            {
+                "id": "8",
+                "name": "node-flow8",
+                "jobFlowId": 100000016,
+                "version": 1,
+                "createDate": "2019-03-12 16:05:16",
+                "changeDate": "2019-03-12 16:05:16",
+                "jobId": 100000019
+            }
+        ],
+        "links": [{
+                "source": "1",
+                "target": "2"
+            },
+            {
+                "source": "1",
+                "target": "3"
+            },
+            {
+                "source": "1",
+                "target": "4"
+            },
+            {
+                "source": "1",
+                "target": "5"
+            },
+            {
+                "source": "2",
+                "target": "6"
+            },
+            {
+                "source": "3",
+                "target": "7"
+            },
+            {
+                "source": "4",
+                "target": "8"
+            },
+            {
+                "source": "5",
+                "target": "6"
+            },
+            {
+                "source": "6",
+                "target": "7"
+            },
+            {
+                "source": "7",
+                "target": "8"
+            },
+            {
+                "source": "8",
+                "target": "6"
+            }
+        ]
+    },
+    "appVersion": {
+        "timestamp": "2019-03-12 16:16:36"
+    }
+
+}

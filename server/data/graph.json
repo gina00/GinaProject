@@ -1,128 +1,125 @@
 {
-    "content": {
-        "data": [{
-                "id": "1",
-                "name": "root-flow",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000016
-
-            },
-            {
-                "id": "2",
-                "name": "node-flow2",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000017
-            },
-            {
-                "id": "3",
-                "name": "node-flow3",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000018
-            },
-            {
-                "id": "4",
-                "name": "node-flow4",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000019
-            },
-            {
-                "id": "5",
-                "name": "root-flow5",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000016
-
-            },
-            {
-                "id": "6",
-                "name": "node-flow6",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000017
-            },
-            {
-                "id": "7",
-                "name": "node-flow7",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000018
-            },
-            {
-                "id": "8",
-                "name": "node-flow8",
-                "jobFlowId": 100000016,
-                "version": 1,
-                "createDate": "2019-03-12 16:05:16",
-                "changeDate": "2019-03-12 16:05:16",
-                "jobId": 100000019
-            }
-        ],
-        "links": [{
-                "source": "1",
-                "target": "2"
-            },
-            {
-                "source": "1",
-                "target": "3"
-            },
-            {
-                "source": "1",
-                "target": "4"
-            },
-            {
-                "source": "1",
-                "target": "5"
-            },
-            {
-                "source": "2",
-                "target": "6"
-            },
-            {
-                "source": "3",
-                "target": "7"
-            },
-            {
-                "source": "4",
-                "target": "8"
-            },
-            {
-                "source": "5",
-                "target": "6"
-            },
-            {
-                "source": "6",
-                "target": "7"
-            },
-            {
-                "source": "7",
-                "target": "8"
-            },
-            {
-                "source": "8",
-                "target": "6"
-            }
-        ]
-    },
-    "appVersion": {
-        "timestamp": "2019-03-12 16:16:36"
-    }
-
+  "content": {
+    "id": 100000291,
+    "version": 15,
+    "actions": [],
+    "jobCron": "* * * * * ? *",
+    "jobDesc": "任务流bwkg",
+    "type": "JOB_FLOW",
+    "clusterId": 0,
+    "sysCategoryId": 477,
+    "tenantId": 100220,
+    "createDate": "2019-09-25 14:38:45",
+    "changeDate": "2019-09-25 14:38:45",
+    "creatorId": 100100,
+    "links": [{
+      "source": "800000450",
+      "target": "800000451"
+    }, {
+      "source": "800000450",
+      "target": "800000452"
+    }, {
+      "source": "800000451",
+      "target": "800000453"
+    }, {
+      "source": "800000452",
+      "target": "800000453"
+    }, {
+      "source": "800000453",
+      "target": "800000508"
+    }, {
+      "source": "800000508",
+      "target": "800000517"
+    }],
+    "nodes": [{
+      "id": "800000450",
+      "name": "任务流bwkg",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": 200,
+      "y": 20,
+      "jobId": 100000291,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": true
+    }, {
+      "id": "800000451",
+      "name": "任务g1",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": 172,
+      "y": 187,
+      "jobId": 100000291,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": false
+    }, {
+      "id": "800000452",
+      "name": "任务g2",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": 831,
+      "y": 207,
+      "jobId": 100000291,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": false
+    }, {
+      "id": "800000453",
+      "name": "ssssss",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": 561,
+      "y": 365,
+      "jobId": 100000115,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": false
+    }, {
+      "id": "800000508",
+      "name": "任务g2",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": 278,
+      "y": 393,
+      "jobId": 100000291,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": false
+    }, {
+      "id": "800000517",
+      "name": "任务g4dasdassad",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": 116,
+      "y": 328,
+      "jobId": 100000108,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": false
+    }, {
+      "id": "800000521",
+      "name": "任务g1",
+      "jobFlowId": 100000291,
+      "version": 15,
+      "creatorId": 100100,
+      "x": -179,
+      "y": 147,
+      "jobId": 100000291,
+      "logId": 0,
+      "parentLogId": 0,
+      "root": false
+    }]
+  },
+  "appVersion": {
+    "version": "null-dev93",
+    "timestamp": "2019-09-26 16:00:10"
+  },
+  "traceId": "ae5fb70dc066dc91"
 }
