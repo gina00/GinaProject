@@ -47,7 +47,7 @@
         "href": "",
         "operate": "查看详情",
         "link": "/project/digital",
-        "createDate": "2018-03-22"
+        "createDate": "2019-03-22"
     },
     {
         "id": 5,
@@ -57,6 +57,36 @@
         "href": "",
         "operate": "查看详情",
         "link": "/project/flow",
-        "createDate": "2018-04-22"
+        "createDate": "2019-04-22"
+    },
+    {
+        "id": 6,
+        "name": "养殖系统App应用",
+        "detail": "猪场养殖系统应用开发，统计养殖数量，智能进行养殖管理，合理控制生态系统",
+        "imageSrc": "../../static/images/projectList/project6.jpg",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2019-08-30"
+    },
+    {
+        "id": 7,
+        "name": "农业厅统一门户系统",
+        "detail": "农业厅统一门户——学习计划（layui框架学习，并自主搭建起项目）",
+        "imageSrc": "../../static/images/projectList/nong-login.png",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2019-09-29"
+    },
+    {
+        "id": 8,
+        "name": "农交会养殖展会",
+        "detail": "智能养殖展会——学习计划（熟悉grid布局，并能熟练运用响应式布局）",
+        "imageSrc": "../../static/images/projectList/big-show.png",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2019-10-28"
     }
 ]

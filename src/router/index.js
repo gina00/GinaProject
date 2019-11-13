@@ -68,6 +68,11 @@ export const constantRouterMap = [{
                     component: () =>
                         import ('@/views/project/components/windowFlow')
                 },
+                {
+                    path: '/project/breed',
+                    component: () =>
+                        import ('@/views/project/components/breedApp')
+                },
             ]
         }]
     },
@@ -203,6 +208,17 @@ export const constantRouterMap = [{
             path: 'index',
             component: () =>
                 import ('@/views/dom/index')
+        }]
+    },
+    {
+        path: '/editWord',
+        component: Layout,
+        redirect: '/editWord/index',
+        hidden: true,
+        children: [{
+            path: 'index',
+            component: () =>
+                import ('@/views/question/components/editDocumentword')
         }]
     },
 ]
