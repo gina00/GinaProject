@@ -73,7 +73,7 @@
         "id": 7,
         "name": "农业厅统一门户系统",
         "detail": "农业厅统一门户——学习计划（layui框架学习，并自主搭建起项目）",
-        "imageSrc": "../../static/images/projectList/nong-login.png",
+        "imageSrc": "../../static/images/projectList/nong-login.jpg",
         "href": "",
         "operate": "查看详情",
         "link": "/project/flow",
@@ -88,5 +88,23 @@
         "operate": "查看详情",
         "link": "/project/flow",
         "createDate": "2019-10-28"
+    },{
+        "id": 9,
+        "name": "动物检疫票证系统",
+        "detail": "动物检疫票证系统",
+        "imageSrc": "../../static/images/projectList/project7.jpg",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2019-12-11"
+    },{
+        "id": 10,
+        "name": "猪价管理APP系统",
+        "detail": "手机应用-猪价管理",
+        "imageSrc": "../../static/images/projectList/pigPriceAPP.jpg",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2019-12-13"
     }
 ]

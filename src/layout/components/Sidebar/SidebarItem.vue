@@ -43,6 +43,12 @@
           <span slot="title" class="itemText">流量包选择</span>
         </el-menu-item>
       </router-link>
+      <router-link to="/farm">
+        <el-menu-item index="4-4">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          <span slot="title" class="itemText">农业农村厅</span>
+        </el-menu-item>
+      </router-link>
     </el-submenu>
     <router-link to="/about">
       <el-menu-item index="5">
