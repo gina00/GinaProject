@@ -61,50 +61,69 @@
     },
     {
         "id": 6,
-        "name": "养殖系统App应用",
+        "name": "养殖系统App应用系统",
         "detail": "猪场养殖系统应用开发，统计养殖数量，智能进行养殖管理，合理控制生态系统",
         "imageSrc": "../../static/images/projectList/project6.jpg",
         "href": "",
         "operate": "查看详情",
         "link": "/project/flow",
-        "createDate": "2019-08-30"
+        "createDate": "2019-08-15"
     },
     {
         "id": 7,
-        "name": "农业厅统一门户系统",
-        "detail": "农业厅统一门户——学习计划（layui框架学习，并自主搭建起项目）",
-        "imageSrc": "../../static/images/projectList/nong-login.jpg",
+        "name": "生猪可视化系统",
+        "detail": "猪场养殖系统应用开发，统计养殖数量，智能进行养殖管理，合理控制生态系统",
+        "imageSrc": "../../static/images/projectList/pig/index.gif",
         "href": "",
         "operate": "查看详情",
         "link": "/project/flow",
-        "createDate": "2019-09-29"
+        "createDate": "2019-09-12"
     },
     {
         "id": 8,
-        "name": "农交会养殖展会",
-        "detail": "智能养殖展会——学习计划（熟悉grid布局，并能熟练运用响应式布局）",
-        "imageSrc": "../../static/images/projectList/big-show.png",
+        "name": "农业农村厅统一门户系统",
+        "detail": "农业厅统一门户。之后的学习计划（layui框架学习，并自主搭建起项目）",
+        "imageSrc": "../../static/images/projectList/nong-login.jpg",
         "href": "",
         "operate": "查看详情",
-        "link": "/project/flow",
+        "link": "/farm/index",
+        "createDate": "2019-09-29"
+    },
+    {
+        "id": 9,
+        "name": "江西农交会养殖展会",
+        "detail": "智能养殖展会。之后的学习计划（熟悉grid布局，并能熟练运用响应式布局）",
+        "imageSrc": "../../static/images/projectList/farm-show/index-2.jpg",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/farm",
         "createDate": "2019-10-28"
     },{
-        "id": 9,
+        "id": 10,
         "name": "动物检疫票证系统",
-        "detail": "动物检疫票证系统",
+        "detail": "动物检疫票证系统，开具动物检疫的票证，合理管理动物的健康证明",
         "imageSrc": "../../static/images/projectList/project7.jpg",
         "href": "",
         "operate": "查看详情",
-        "link": "/project/flow",
+        "link": "/farm/index",
         "createDate": "2019-12-11"
     },{
-        "id": 10,
+        "id": 11,
         "name": "猪价管理APP系统",
-        "detail": "手机应用-猪价管理",
+        "detail": "手机应用-猪价管理，填报猪肉价格，管理省内各市猪肉情况，包含日常管理、猪价管理、周报管理等功能",
         "imageSrc": "../../static/images/projectList/pigPriceAPP.jpg",
         "href": "",
         "operate": "查看详情",
         "link": "/project/flow",
         "createDate": "2019-12-13"
+    },{
+        "id": 12,
+        "name": "养殖场角色管理APP应用系统",
+        "detail": "养殖场角色管理移动端系统",
+        "imageSrc": "../../static/images/projectList/pigPriceAPP.jpg",
+        "href": "",
+        "operate": "查看详情",
+        "link": "/project/flow",
+        "createDate": "2020-02-17"
     }
 ]

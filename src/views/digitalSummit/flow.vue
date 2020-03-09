@@ -125,6 +125,7 @@ export default {
 .centerBox .rightBox .stepBox .step {
   margin-bottom: 45px;
   margin-left: 40px;
+  padding: 0;
 }
 
 .centerBox .rightBox .stepBox .step span {

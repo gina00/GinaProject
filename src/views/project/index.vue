@@ -30,31 +30,31 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       list: []
-    };
+    }
   },
-  mounted() {
-    this.getMenuInfo();
-    console.log(this.list);
+  mounted () {
+    this.getMenuInfo()
+    console.log(this.list)
   },
   methods: {
-    getMenuInfo() {
-      this.$axios.get("/api/projectList").then(response => {
-        this.list = response.data;
-      });
+    getMenuInfo () {
+      this.$axios.get('/api/projectList').then(response => {
+        this.list = response.data
+      })
     },
-    showDetail(index) {
-      this.$store.commit("getName",this.list[index].name);
-      this.$store.commit("geTitle",this.list[index].detail);
-      this.$store.commit("getDate",this.list[index].createDate);
+    showDetail (index) {
+      this.$store.commit('getName', this.list[index].name)
+      this.$store.commit('geTitle', this.list[index].detail)
+      this.$store.commit('getDate', this.list[index].createDate)
       this.$router.push({
         path: this.list[index].link
-      });
+      })
     }
   }
-};
+}
 </script>
 <style lang="scss">
 .el-row {
@@ -118,4 +118,3 @@ export default {
   justify-content: space-between;
 }
 </style>
-
