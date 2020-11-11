@@ -72,6 +72,14 @@ export const constantRouterMap = [{
           path: '/project/breed',
           component: () =>
             import('@/views/project/components/breedApp')
+        },{
+          path: '/project/pigPrice',
+          component: () =>
+            import('@/views/project/components/pigPriceApp')
+        },{
+          path: '/project/breedRole',
+          component: () =>
+            import('@/views/project/components/breedRoleApp')
         },
       ]
     }]

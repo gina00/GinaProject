@@ -66,7 +66,7 @@
         "imageSrc": "../../static/images/projectList/project6.jpg",
         "href": "",
         "operate": "查看详情",
-        "link": "/project/flow",
+        "link": "/project/breed",
         "createDate": "2019-08-15"
     },
     {
@@ -114,16 +114,16 @@
         "imageSrc": "../../static/images/projectList/pigPriceAPP.jpg",
         "href": "",
         "operate": "查看详情",
-        "link": "/project/flow",
+        "link": "/project/pigPrice",
         "createDate": "2019-12-13"
     },{
         "id": 12,
         "name": "养殖场角色管理APP应用系统",
         "detail": "养殖场角色管理移动端系统",
-        "imageSrc": "../../static/images/projectList/pigPriceAPP.jpg",
+        "imageSrc": "../../static/images/projectList/breedRole.jpg",
         "href": "",
         "operate": "查看详情",
-        "link": "/project/flow",
+        "link": "/project/breedRole",
         "createDate": "2020-02-17"
     }
 ]

@@ -1,14 +1,14 @@
 <template>
     <section>
     <div class="container">
-      <a href="http://localhost:9090/Breed_App_Code/index.html" class="link" target="_blank">演示地址</a>
+      <a href="http://localhost:9090/pigprice-app-project/index.html" class="link" target="_blank">演示地址</a>
       <section>
         <h3>项目背景</h3>
-        <p>福建农业厅-管理养殖-开发养殖应用</p>
+        <p>福建农业厅-猪价管理移动端应用</p>
       </section>
       <section>
         <h3>项目需求</h3>
-        <p>需要根据需求设计稿，前端开发养殖应用系统</p>
+        <p>需要根据需求设计稿，前端开发猪价管理应用</p>
         <p></p>
       </section>
       <section>
@@ -22,7 +22,7 @@
       <section>
         <h3>项目效果展示</h3>
         <div class="content">
-            <img src="/static/images/projectList/project6.jpg">
+            <img src="/static/images/projectList/pigPriceAPP.jpg">
         </div>
       </section>
     </div>
