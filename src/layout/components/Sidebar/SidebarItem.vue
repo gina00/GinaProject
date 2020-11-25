@@ -49,6 +49,12 @@
           <span slot="title" class="itemText">农业农村厅</span>
         </el-menu-item>
       </router-link>
+      <router-link to="/grpcombobusiness">
+        <el-menu-item index="4-5">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          <span slot="title" class="itemText">政企产品受理大厅</span>
+        </el-menu-item>
+      </router-link>
     </el-submenu>
     <router-link to="/about">
       <el-menu-item index="5">
@@ -57,7 +63,7 @@
       </el-menu-item>
     </router-link>
     <router-link to="/dom">
-      <el-menu-item index="5">
+      <el-menu-item index="6">
         <i class="fa fa-address-card-o" aria-hidden="true"></i>
         <span slot="title" class="itemText">JS&CSS</span>
       </el-menu-item>

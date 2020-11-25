@@ -240,6 +240,17 @@ export const constantRouterMap = [{
         import('@/views/farmProject/index')
     }]
   },
+  {
+    path: '/grpcombobusiness',
+    component: Layout,
+    redirect: '/grpcombobusiness/index',
+    hidden: true,
+    children: [{
+      path: 'index',
+      component: () =>
+        import('@/views/grpcombobusiness/index')
+    }]
+  },
 ]
 
 export default new Router({
